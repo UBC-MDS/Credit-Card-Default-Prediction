@@ -46,7 +46,7 @@ contacting the teaching team at tiffany.timbers@stat.ubc.ca.
 
 Team members who do not follow or enforce 
 the Code of Conduct in good faith may face temporary or permanent repercussions as determined by other 
-team members of the project and leadership of the cou
+team members of the project and leadership of the course.
 
 
 ## Attribution
