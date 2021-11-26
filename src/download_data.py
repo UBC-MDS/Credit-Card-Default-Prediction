@@ -1,13 +1,15 @@
 # author: James Kim
 # date: 2021-11-19
+# last updated on: 2021-11-25
+# last updated by: David Wang
 
-"""Downloads data from a url and saves it to a local filepat as a csv.
+"""Download the Credit Card Default dataset from a url and saves it to a local file as a csv.
 
-Usage: download_data.py --url=<url> --out_file=<out_file>
+Usage: src/download_data.py --url=<url> --out_file=<out_file>
 
 Options:
---url=<url>               URL from where to download the data (must be xls format)
---out_file=<out_file>     Path (including the file name) of where to write the file locally
+--url=<url>               URL to original data set [default: https://archive.ics.uci.edu/ml/machine-learning-databases/00350/default%20of%20credit%20card%20clients.xls]
+--out_file=<out_file>     Local path and file name [default: data/raw/data.csv]
 """
 
 import os
