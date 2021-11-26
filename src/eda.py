@@ -14,15 +14,33 @@ Options:
 import altair as alt
 import os
 import pandas as pd
+from docopt import docopt
+
 
 alt.data_transformers.enable('data_server') 
 alt.renderers.enable('mimetype')
 
-from docopt import docopt
 opt = docopt(__doc__)
 
 def plot_cat_features(train_df_path, output_dir):
+  """
+  Create and save the visuazalition of distribution of categorical features for 
+  the two target variable classes.
+  
+  Pramaeters
+  ----------
+  train_df_path: string
+      Path including filename to training data in csv format
+  output_dir: string
+      Path to directory where the plots will be saved
+  
+  Returns
+  ----------
+  """
+
   train_df = pd.read_csv(train_df_path)
+  categorical_features = ["SEX", "EDUCATION", "MARRIAGE", 
+                        "PAY_0", "PAY_2", "PAY_3", "PAY_4", "PAY_5", "PAY_6"]
   cat_plot = alt.Chart(train_df).mark_bar().encode(
     alt.X(alt.repeat(), type='nominal'),
     alt.Y('count()', stack=False),
@@ -39,7 +57,26 @@ def plot_cat_features(train_df_path, output_dir):
 
 
 def plot_num_features(train_df_path, output_dir):
+  """
+  Create and save the visuazalition of distribution of numeric features for 
+  the two target variable classes.
+  
+  Pramaeters
+  ----------
+  train_df_path: string
+      Path including filename to training data in csv format
+  output_dir: string
+      Path to directory where the plots will be saved
+  
+  Returns
+  ----------
+  """
   train_df = pd.read_csv(train_df_path)
+  categorical_features = ["SEX", "EDUCATION", "MARRIAGE", 
+                        "PAY_0", "PAY_2", "PAY_3", "PAY_4", "PAY_5", "PAY_6"]
+  numeric_features = list(set(X_train.columns.tolist()) - 
+  set(categorical_features))
+  
   num_plot = alt.Chart(train_df).mark_bar().encode( 
     alt.X(alt.repeat(), type='quantitative', bin=alt.Bin(maxbins=50)), 
     alt.Y('count()', stack=False), 
