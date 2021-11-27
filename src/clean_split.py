@@ -1,5 +1,6 @@
 # author: David Wang
 # date: 2021-11-25
+# last updated on: 2021-11-26
 
 """
 Clean, preprocess and split the raw Credit Card Default dataset, save the train and test dataset in the specified output path.
@@ -82,8 +83,20 @@ def convert_marriage(x):
         return 'others'
 
 def convert_to_category(data):
-    # Convert 'default payment next month', 'SEX', 'MARRIAGE' and 'EDUCATION' columns
-    # from a number to a categorical string.
+    """
+    Convert 'default payment next month', 'SEX', 'MARRIAGE' and 'EDUCATION' columns
+    From a number to a categorical string.
+
+    Pramaeters
+    ----------
+    data: DataFrame
+        the DataFrame before conversion
+
+    Returns
+    ----------
+    DataFrame: the DataFrame after conversion
+    """
+
     data['default payment next month'] = data['default payment next month'].apply(convert_target)
     data['SEX'] = data['SEX'].apply(convert_sex) 
     data['MARRIAGE'] = data['MARRIAGE'].apply(convert_marriage) 
@@ -91,8 +104,27 @@ def convert_to_category(data):
     return data
 
 def main(input_file, test_size, output_path):
+    """
+    Read the raw dataset from the input_file
+    Split the dataset into train and test dataset according to test_size
+    Transfer "default payment next month", "SEX", "MARRIAGE", "EDUCATION" to categorical string
+    Drop the "ID" column
+    Save the train and test dataset to local .csv files.
+
+    Pramaeters
+    ----------
+    input_file: string
+        raw data file, default is "data/raw/data.csv"
+    test_size: real
+        train test split ratio, default is 0.2
+    output_path: string
+        The directory where store train and test dataset, default is "data/processed/"
     
-    # read the data set from the input_file, default is "data/raw/data.csv"
+    Returns
+    ----------
+    """
+
+    # read the data set from the input_file
     data = read_data(input_file)
 
     # convert the test_size from str to float
@@ -102,7 +134,6 @@ def main(input_file, test_size, output_path):
     train_df, test_df = split(data, test_size)
 
     # convert "default payment next month", "SEX", "MARRIAGE", "EDUCATION" columns
-    # from a number to a categorical variable to improve the readability
     # drop the "ID" column in train_df and test_df
 
     train_df = convert_to_category(train_df)
@@ -116,7 +147,6 @@ def main(input_file, test_size, output_path):
     test_file = output_path + 'test.csv'
 
     # Save the train and test dataset to local csv files
-    # default path for the processed files is "data/processed/"
     try:
         train_df.to_csv(train_file, index=False)
     except:
