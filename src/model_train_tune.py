@@ -16,6 +16,7 @@ from docopt import docopt
 import numpy as np
 import sys
 import pickle
+import dataframe_image as dfi
 
 from sklearn.model_selection import (
     RandomizedSearchCV,
@@ -195,10 +196,10 @@ def main(path, out_file, model_path):
     # Output: saving the cross val score in a CSV file
     
     try:
-        results_in_df.to_csv(out_file)
+        dfi.export(results_in_df, out_file)
     except:
         os.makedirs(os.path.dirname(out_file))
-        results_in_df.to_csv(out_file)
+        dfi.export(results_in_df, out_file)
 
     # Model Tuning 
     # LR was decided to be the best model for this scenario
