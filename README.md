@@ -2,7 +2,8 @@
 
 Contributors: Cici Du, James Kim, Rohit Rawat, Tianwei Wang
 
-A data analysis project for DSCI 522 (Data Science workflows); a course in the Master of Data Science program at the University of British Columbia.
+A data analysis project titled 'Credit Card Default Prediction' for DSCI 522 (Data Science workflows); a course in the Master of Data Science program at the University of British Columbia. The report of the analysis can be found [here](https://github.com/garhwalinauna/Credit-Card-Default-Prediction/blob/main/reports/_build/pdf/book.pdf).
+
 
 ## Summary
 
@@ -22,6 +23,9 @@ After choosing our final model, we will re-fit the model on the entire training 
 
 
 ## Usage
+
+For reproducing the results of this repository, run the scripts in the order provided below:  
+
 Downloading the dataset:
 ```
 python src/download_data.py --url=https://archive.ics.uci.edu/ml/machine-learning-databases/00350/default%20of%20credit%20card%20clients.xls --out_file=data/raw/data.csv
@@ -46,9 +50,8 @@ python src/model_evaluate.py data/processed/train.csv data/processed/test.csv re
 ## Dependencies
 This list will continue to be modified during the project. 
 - Python 3.7.3 and Python packages:
-- docopt==0.6.2
-- requests==2.22.0
-- pandas==0.24.2
+
+The complete list of packages used can be found in the [environment file](https://github.com/garhwalinauna/Credit-Card-Default-Prediction/blob/main/environment.yaml).
 
 ## License
 The Credit Card Default Prediction materials here are licensed under the Creative Commons Attribution 2.5 Canada License (CC BY 2.5 CA). If re-using/re-mixing please provide attribution and link to this webpage.
