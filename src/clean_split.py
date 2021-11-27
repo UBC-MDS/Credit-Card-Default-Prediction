@@ -133,13 +133,8 @@ def main(input_file, test_size, output_path):
     # train test split the dataset
     train_df, test_df = split(data, test_size)
 
-    # convert "default payment next month", "SEX", "MARRIAGE", "EDUCATION" columns
     # drop the "ID" column in train_df and test_df
-
-    train_df = convert_to_category(train_df)
     train_df.drop(columns=['ID'], inplace=True)
-
-    test_df = convert_to_category(test_df)
     test_df.drop(columns=['ID'], inplace=True)
 
     # The output_path for train and test dataset
@@ -150,14 +145,26 @@ def main(input_file, test_size, output_path):
     try:
         train_df.to_csv(train_file, index=False)
     except:
-        os.makedirs(os.path.dirname(train_file))
-        data.to_csv(train_file, index=False)
+        os.makedirs(os.path.dirname(output_path))
+        train_df.to_csv(train_file, index=False)
     try:
         test_df.to_csv(test_file, index=False)
     except:
-        os.makedirs(os.path.dirname(test_file))
-        data.to_csv(test_file, index=False)
+        os.makedirs(os.path.dirname(output_path))
+        test_df.to_csv(test_file, index=False)
 
+    # convert "default payment next month", "SEX", "MARRIAGE", "EDUCATION" columns
+    train_visual = convert_to_category(train_df)
+ 
+    # The output_path for train and test dataset
+    train_visual_file = output_path + 'train_visual.csv'
+
+    # Save the train and test dataset to local csv files
+    try:
+        train_visual.to_csv(train_visual_file, index=False)
+    except:
+        os.makedirs(os.path.dirname(output_path))
+        train_visual.to_csv(train_visual_file, index=False)
 
 if __name__ == "__main__":
     main(opt["--input_file"], opt["--test_size"], opt["--output_path"])
