@@ -12,6 +12,6 @@ The first thing we spotted from the data was that there is a minor class imbalan
 To explore how each feature contributes to the prediction of the default class, we plotted the distribution of each numeric and categorical feature from the train data set and colored the distribution by class (default: blue and not default: orange).
 We see that the distributions below overlap for the two classes and they look quite similar to the human eye.
 
+![Distribution of categorical features](../results/images/dist_cat_feats_by_target.png)
 
-![Distribution of categorical features](results/images/dist_cat_feats_by_target.png)
-![Distribution of numerical features](results/images/dist_num_feats_by_target.png)
+![Distribution of numerical features](Credit-Card-Default-Prediction/results/images/dist_num_feats_by_target.png)
