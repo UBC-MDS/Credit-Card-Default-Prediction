@@ -2,7 +2,8 @@
 
 Contributors: Cici Du, James Kim, Rohit Rawat, Tianwei Wang
 
-A data analysis project for DSCI 522 (Data Science workflows); a course in the Master of Data Science program at the University of British Columbia.
+A data analysis project titled 'Credit Card Default Prediction' for DSCI 522 (Data Science workflows); a course in the Master of Data Science program at the University of British Columbia. The report of the analysis can be found [here](https://github.com/garhwalinauna/Credit-Card-Default-Prediction/blob/main/reports/_build/pdf/book.pdf).
+
 
 ## Summary
 
