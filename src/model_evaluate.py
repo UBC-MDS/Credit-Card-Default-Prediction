@@ -18,6 +18,7 @@ import os
 import sys
 import matplotlib.pyplot as plt
 
+
 from sklearn.model_selection import cross_val_predict
 from sklearn.metrics import ConfusionMatrixDisplay
 from sklearn.metrics import precision_recall_curve
@@ -37,15 +38,21 @@ def load_model(pickle_path):
 
 def main(train_path, test_path, model_path, out_path):
     # Reading the data
-    train_df = pd.read_csv(train_path)
-    test_df = pd.read_csv(test_path)
+    try:
+        train_df = pd.read_csv(train_path)
+        test_df = pd.read_csv(test_path)
+    except:
+        print('Error in loading the train/test dataset.')
     
     # Splitting between Features
     X_train, y_train = train_df.drop(columns=["default payment next month"]), train_df["default payment next month"]
     X_test, y_test = test_df.drop(columns=["default payment next month"]), test_df["default payment next month"]
     
-    final_model = load_model(model_path)
-    print(final_model.fit(X_train, y_train))
+    try:
+        final_model = load_model(model_path)
+        print(final_model.fit(X_train, y_train))
+    except:
+        print('Error in loading the model pickle file.')
     
     # Confusion Matrix on the test results
     cm = ConfusionMatrixDisplay.from_estimator(
