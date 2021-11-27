@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Introduction &#8212; Credit Card Default Prediction</title>
+    <title>Credit Card Default Prediction</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -51,7 +51,6 @@
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Analysis" href="analysis.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -68,48 +67,8 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+<div class="col-12 col-md-2 bd-sidebar site-navigation show single-page" id="site-navigation">
     
-        <div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="index.html">
-      
-      
-      
-      <h1 class="site-logo" id="site-title">Credit Card Default Prediction</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1 current">
-  <a class="reference internal" href="#">
-   Introduction
-  </a>
- </li>
-</ul>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="analysis.html">
-   Analysis
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="results.html">
-   Results
-  </a>
- </li>
-</ul>
-
-    </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
 </div>
 
 
@@ -124,33 +83,7 @@
         <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
         <div class="col pl-md-4 topbar-main">
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
             
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/intro.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
             <!-- Source interaction buttons -->
 
 <div class="dropdown-buttons-trigger">
@@ -188,32 +121,15 @@
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#research-question">
-   Research Question
+ <li class="toctree-l1 toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="intro.html#document-analysis">
+   Analysis
   </a>
  </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#data">
-   Data
+ <li class="toctree-l1 toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="intro.html#document-results">
+   Results
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#initial-eda">
-   Initial EDA
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#distribution-of-target-variables">
-     Distribution of target variables
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#distribution-of-numeric-and-categorical-features-by-target-variable">
-     Distribution of numeric and categorical features by target variable
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
 
@@ -234,7 +150,7 @@
 </div>
 <div class="section" id="data">
 <h2>Data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h2>
-<p>The data set that we used was put together by I-Cheng Yeh at the Department of Information Management, Chung Hua University, in Taiwan. The data set itself was sourced from the UCI Machine Learning Repository and can be found here. Each row in the data set represents variables associated with a customer and his or her credit card payment information, including a boolean value of default. There are 30,000 observations in the data set and 23 features. There are no observations with missing values or duplicated rows in the data set.</p>
+<p>The data set that we used was put together by I-Cheng Yeh at the Department of Information Management, Chung Hua University, in Taiwan. The data set itself was sourced from the UCI Machine Learning Repository and can be found here <a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/default+of+credit+card+clients">https://archive.ics.uci.edu/ml/datasets/default+of+credit+card+clients</a>. Each row in the data set represents variables associated with a customer and his or her credit card payment information, including a boolean value of default. There are 30,000 observations in the data set and 23 features. There are no observations with missing values or duplicated rows in the data set.</p>
 </div>
 <div class="section" id="initial-eda">
 <h2>Initial EDA<a class="headerlink" href="#initial-eda" title="Permalink to this headline">¶</a></h2>
@@ -252,6 +168,53 @@ We see that the distributions below overlap for the two classes and they look qu
 </div>
 </div>
 <div class="toctree-wrapper compound">
+<span id="document-analysis"></span><div class="tex2jax_ignore mathjax_ignore section" id="analysis">
+<h2>Analysis<a class="headerlink" href="#analysis" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="splitting-and-cleaning-the-model">
+<h3>Splitting and cleaning the model<a class="headerlink" href="#splitting-and-cleaning-the-model" title="Permalink to this headline">¶</a></h3>
+<p>We split our data into train and test data frames with the default setting of 0.2 split ratio. We then converted the categorical features to contain more meaningful strings as their values and the outcome file is saved in the data folder as train_visual.csv file.</p>
+</div>
+<div class="section" id="preprocessing">
+<h3>Preprocessing<a class="headerlink" href="#preprocessing" title="Permalink to this headline">¶</a></h3>
+<p>Since our data was relatively clean, we applied Standard Scaling on the numeric features and One Hot Encoding on the categorical features.</p>
+</div>
+<div class="section" id="choosing-the-best-model">
+<h3>Choosing the best model<a class="headerlink" href="#choosing-the-best-model" title="Permalink to this headline">¶</a></h3>
+<p>We trained and cross-validated the training dataset on Decision Tree, SVC, Random Forest and Logistic Regression. We also utilized class_weight parameter and set it as ‘balanced’ to deal with the class imbalance that was observed during the initial EDA.
+According to our model training, Logistic Regression gave the best validation scores using ROC_AUC as the scoring method.</p>
+<p><img alt="Validation scores of different classification models" src="_images/model_results.png" /></p>
+</div>
+<div class="section" id="hypertuning-the-model">
+<h3>Hypertuning the model<a class="headerlink" href="#hypertuning-the-model" title="Permalink to this headline">¶</a></h3>
+<p>On our selected model, we tuned the parameters class_weight and C of the Logistic Regression. We obtained our best parameters and the best model which is saved as the pickle file.</p>
+<p><strong>C: float, default=1.0</strong><br />
+Inverse of regularization strength; must be a positive float.</p>
+<p><strong>class_weight: dict or ‘balanced’, default=None</strong><br />
+Weights associated with classes in the form {class_label: weight}.</p>
+</div>
+</div>
+<span id="document-results"></span><div class="tex2jax_ignore mathjax_ignore section" id="results">
+<h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="model-results">
+<h3>Model Results<a class="headerlink" href="#model-results" title="Permalink to this headline">¶</a></h3>
+<p>We evaluated the model from pickle on the test dataset and we obtained comparable test scores to the validation score. We plotted the Confusion Matrix and the ROC-AUC curve corresponding to the model on the predicted labels.</p>
+<p><img alt="Confusion Matrix of the predictions" src="_images/confusion_matrix.png" /></p>
+<p><img alt="ROC-AUC curve of the predictions" src="_images/roc_auc_curve.png" /></p>
+</div>
+<div class="section" id="reservations-and-suggestions">
+<h3>Reservations and Suggestions<a class="headerlink" href="#reservations-and-suggestions" title="Permalink to this headline">¶</a></h3>
+<p>Major limitation of this project is that the data was collected in 2005. Consumers’ spending behaviours and tastes must have changed since then so the results of this project should not be taken for granted and be blindly applied to the current setting. To further improve this model in the future, we suggest including more features such as income, vocation, size of the household, and debt to asset ratio. With more relevant features to base the predictions on, we should be able to predict our target class with more accuracy.</p>
+</div>
+<div class="section" id="references">
+<h3>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h3>
+<p>Dua, D., &amp; Graff, C. (2017). UCI Machine Learning Repository. Opgehaal van <a class="reference external" href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a></p>
+<p>Python Core Team. (2019). Python: A dynamic, open source programming language. Opgehaal van Python Software Foundation website: <a class="reference external" href="https://www.python.org/">https://www.python.org/</a></p>
+<p>Hunter, J. D. (2007). Matplotlib: A 2D graphics environment. Computing in science &amp; engineering, 9(3), 90.</p>
+<p>Pedregosa, F., Varoquaux, G., Gramfort, A., Michel, V., Thirion, B., Grisel, O., … Duchesnay, E. (2011). Scikit-learn: Machine Learning in Python. Journal of Machine Learning Research, 12, 2825–2830.</p>
+<p>McKinney, W. (2010). Data Structures for Statistical Computing in Python. In S. van der Walt &amp; J. Millman (Reds), Proceedings of the 9th Python in Science Conference (bll 51–56).</p>
+<p>Harris, C. R., Millman, K. J., van der Walt, S. J., Gommers, R., Virtanen, P., Cournapeau, D., … Oliphant, T. E. (2020). Array programming with NumPy. Nature, 585(7825), 357–362. doi:10.1038/s41586-020-2649-2</p>
+</div>
+</div>
 </div>
 </div>
 
@@ -280,13 +243,6 @@ We see that the distributions below overlap for the two classes and they look qu
         
             <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='right-next' id="next-link" href="analysis.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Analysis</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
 </div>
         
         </div>
