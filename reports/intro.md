@@ -6,12 +6,12 @@ Credit cards are now an extremely common means of transaction that most of the a
 The data set that we used was put together by I-Cheng Yeh at the Department of Information Management, Chung Hua University, in Taiwan. The data set itself was sourced from the UCI Machine Learning Repository and can be found here. Each row in the data set represents variables associated with a customer and his or her credit card payment information, including a boolean value of default. There are 30,000 observations in the data set and 23 features. There are no observations with missing values or duplicated rows in the data set.
 ## Initial EDA
 ### Distribution of target variables 
-The first thing we spotted from the data was that there is a minor class imbalance. For instance our training data contained only 22.3% of class 1 in the target column. We decided to employ a few techniques to deal with this class imbalance during the analysis later. 
-[insert dist_target.png]
+The first thing we spotted from the data was that there is a minor class imbalance. For instance our training data contained only 22.3% of class 1 in the target column. We decided to employ a few techniques to deal with this class imbalance during the analysis later.
+![Distribution of targets](../results/images/dist_target.png)
 ### Distribution of numeric and categorical features by target variable 
 To explore how each feature contributes to the prediction of the default class, we plotted the distribution of each numeric and categorical feature from the train data set and colored the distribution by class (default: blue and not default: orange).
 We see that the distributions below overlap for the two classes and they look quite similar to the human eye.
 
 ![Distribution of categorical features](../results/images/dist_cat_feats_by_target.png)
 
-![Distribution of numerical features](Credit-Card-Default-Prediction/results/images/dist_num_feats_by_target.png)
+![Distribution of numerical features](../results/images/dist_num_feats_by_target.png)
