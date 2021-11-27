@@ -22,6 +22,31 @@ alt.renderers.enable('mimetype')
 
 opt = docopt(__doc__)
 
+def plot_dist_target(train_visual_path, output_dir):
+  """
+  Create and save the visuazalition of distribution the target variable
+  
+  Parameters
+  ----------
+  train_visual_path: string
+      Path including filename to training data in csv format
+  output_dir: string
+      Path to directory where the plots will be saved
+  
+  Returns
+  ----------
+  """
+  train_df = pd.read_csv(train_visual_path)
+  dist_target = alt.Chart(train_df).mark_bar().encode(
+    alt.X('default payment next month', type='nominal'),
+    alt.Y('count()', stack=False)
+).properties( 
+    width=200, 
+    height=200 
+)
+  dist_target = dist_target + dist_target.mark_text(dy=-5).encode(text='count()')
+  dist_target.save(os.path.join(output_dir, "dist_target.png"))
+
 def plot_cat_features(train_visual_path, output_dir):
   """
   Create and save the visuazalition of distribution of categorical features for 
@@ -91,8 +116,10 @@ def plot_num_features(train_visual_path, output_dir):
   num_plot.save(os.path.join(output_dir, "dist_num_feats_by_target.png"))
 
 def main(train_visual_path, output_dir):
+  plot_dist_target(train_visual_path, output_dir)
   plot_cat_features(train_visual_path, output_dir)
   plot_num_features(train_visual_path, output_dir)
+  
 
 if __name__== "__main__":
     main(opt["--train_visual_path"], opt["--output_dir"])
