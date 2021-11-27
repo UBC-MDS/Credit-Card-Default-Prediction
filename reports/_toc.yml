@@ -5,4 +5,3 @@ root: intro
 chapters:
 - file: analysis
 - file: results
-- file: references
