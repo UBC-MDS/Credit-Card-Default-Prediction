@@ -41,6 +41,21 @@ from scipy.stats import loguniform
 opt = docopt(__doc__)
 
 def model_preprocessor(numeric_features, categorical_features):
+    """
+    Returns processed data using column transformer
+
+    Parameters
+    ----------
+
+    numeric_features : list of numeric features of the DataFrame
+        numeric features which are to be scaled
+    categorical_features : list of categorical features of the DataFrame
+        categorical features which will be one hot encoded
+
+    Returns
+    ----------
+        column transformer of the features
+    """    
     preprocessor = make_column_transformer(
         (OneHotEncoder(handle_unknown="ignore", sparse=False), categorical_features),
         (StandardScaler(), numeric_features),
@@ -49,7 +64,7 @@ def model_preprocessor(numeric_features, categorical_features):
 
 def mean_cross_val_scores(model, X_train, y_train, **kwargs):
     """
-    Returns mean and std of cross validation
+    Returns mean of cross validation
 
     Parameters
     ----------
@@ -75,6 +90,26 @@ def mean_cross_val_scores(model, X_train, y_train, **kwargs):
     return pd.Series(data=out_col, index=mean_scores.index)
 
 def train_multiple_models(preprocessor, X_train, y_train, scoring_metrics):
+    """
+    Returns DataFrame with validation scores of classification models
+
+    Parameters
+    ----------
+
+    preprocessor : column transformer of the DataFrame
+        column transformer with scaling and OHE on features
+    X_train : numpy array or pandas DataFrame
+        X in the training data
+    y_train :
+        y in the training data
+    scoring_metrics : list of scoring metrics used
+        categorical features which will be one hot encoded
+
+    Returns
+    ----------
+        DataFrame of the validation scores of different models
+    """  
+
     models = {
         "Dummy Classifier": DummyClassifier(random_state=2021),
         "Decision Tree": DecisionTreeClassifier(class_weight='balanced', random_state=2021),
@@ -87,9 +122,30 @@ def train_multiple_models(preprocessor, X_train, y_train, scoring_metrics):
     for i in models:
         pipe_temp = make_pipeline(preprocessor, models[i])
         results[i] = mean_cross_val_scores(pipe_temp, X_train, y_train, scoring=scoring_metrics)
+    
     return pd.DataFrame(results)
     
 def hyperparameter_tuning(preprocessor, X_train, y_train, scoring_metrics):
+    """
+    Returns the best parameter values and LR with those values
+
+    Parameters
+    ----------
+
+    preprocessor : column transformer of the DataFrame
+        column transformer with scaling and OHE on features
+    X_train : numpy array or pandas DataFrame
+        X in the training data
+    y_train :
+        y in the training data
+    scoring_metrics : list of scoring metrics used
+        categorical features which will be one hot encoded
+
+    Returns
+    ----------
+        Returns the best LR model with its tuned hyperparameters
+    """  
+
     param_dists = {
         "logisticregression__C": loguniform(1e-3, 1e3),
         "logisticregression__class_weight": ['balanced', None]
@@ -116,6 +172,7 @@ def hyperparameter_tuning(preprocessor, X_train, y_train, scoring_metrics):
         "mean_test_roc_auc"]].sort_values(by='mean_test_roc_auc', ascending=False).T
     print("Best hyperparameter values: ", lr_random.best_params_)
     print("Best score: %0.3f" % (lr_random.best_score_))
+
     return lr_random.best_estimator_, lr_random.best_params_
     
 
