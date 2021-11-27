@@ -22,8 +22,25 @@ After choosing our final model, we will re-fit the model on the entire training 
 
 
 ## Usage
+Downloading the dataset:
 ```
-python src/download_data.py --url=https://archive.ics.uci.edu/ml/machine-learning-databases/00350/default%20of%20credit%20card%20clients.xls --out_file=data/data.csv
+python src/download_data.py --url=https://archive.ics.uci.edu/ml/machine-learning-databases/00350/default%20of%20credit%20card%20clients.xls --out_file=data/raw/data.csv
+```
+Cleaning and splitting the dataset:
+```
+python src/clean_split.py --input_file=data/raw/data.csv --test_size=0.2 --output_path=data/processed/
+```
+Exploratory Data Analysis:
+```
+python src/eda.py --train_visual_path=data/processed/train_visual.csv --output_dir=results/images/
+```
+Model builing, training and tuning the parameters:
+```
+python src/model_train_tune.py --path=data/processed/train.csv --model_path=results/models/final_model.pkl --score_file=results/model_results.csv
+```
+Model evaluation:
+```
+python src/model_evaluate.py data/processed/train.csv data/processed/test.csv results/models/final_model.pkl --out_dir=results/
 ```
 
 ## Dependencies
