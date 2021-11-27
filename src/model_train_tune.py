@@ -40,14 +40,14 @@ from scipy.stats import loguniform
 
 opt = docopt(__doc__)
 
-def make_preprocessor(numeric_features, categorical_features):
+def model_preprocessor(numeric_features, categorical_features):
     preprocessor = make_column_transformer(
         (OneHotEncoder(handle_unknown="ignore", sparse=False), categorical_features),
         (StandardScaler(), numeric_features),
         )
     return preprocessor
 
-def mean_std_cross_val_scores(model, X_train, y_train, **kwargs):
+def mean_cross_val_scores(model, X_train, y_train, **kwargs):
     """
     Returns mean and std of cross validation
 
@@ -76,17 +76,17 @@ def mean_std_cross_val_scores(model, X_train, y_train, **kwargs):
 
 def train_multiple_models(preprocessor, X_train, y_train, scoring_metrics):
     models = {
-        "Dummy Classifier": DummyClassifier(),
-        "Decision Tree": DecisionTreeClassifier(class_weight='balanced'),
-        "RBF SVM": SVC(class_weight='balanced'),
-        "Random Forest": RandomForestClassifier(class_weight='balanced'),
-        "Logistic Regression": LogisticRegression(class_weight='balanced', max_iter=2000)
+        "Dummy Classifier": DummyClassifier(random_state=2021),
+        "Decision Tree": DecisionTreeClassifier(class_weight='balanced', random_state=2021),
+        "RBF SVM": SVC(class_weight='balanced', random_state=2021),
+        "Random Forest": RandomForestClassifier(class_weight='balanced', random_state=2021),
+        "Logistic Regression": LogisticRegression(class_weight='balanced', max_iter=2000, random_state=2021)
     }
-    #Cross val-score
+    #Calculating mean cross validation score
     results = {}
     for i in models:
         pipe_temp = make_pipeline(preprocessor, models[i])
-        results[i] = mean_std_cross_val_scores(pipe_temp, X_train, y_train, scoring=scoring_metrics)
+        results[i] = mean_cross_val_scores(pipe_temp, X_train, y_train, scoring=scoring_metrics)
     return pd.DataFrame(results)
     
 def hyperparameter_tuning(preprocessor, X_train, y_train, scoring_metrics):
@@ -100,7 +100,7 @@ def hyperparameter_tuning(preprocessor, X_train, y_train, scoring_metrics):
         param_dists,
         n_iter=30,
         n_jobs=-1,
-        random_state=123,
+        random_state=2021,
         scoring=scoring_metrics,
         refit='roc_auc'
     )
@@ -130,7 +130,7 @@ def main(path, out_file, model_path):
     numeric_features = ['LIMIT_BAL', 'AGE'] + X_train.columns.tolist()[11:]
     #drop_features = ['ID']
 
-    preprocessor = make_preprocessor(numeric_features, categorical_features)
+    preprocessor = model_preprocessor(numeric_features, categorical_features)
 
     scoring_metrics = ["accuracy", "f1", "recall", "precision", "roc_auc"]
         
@@ -152,7 +152,7 @@ def main(path, out_file, model_path):
     except:
         os.makedirs(os.path.dirname(model_path))
         directory = os.path.dirname(model_path)
-        pickle.dump(best_params, open(str(directory)+"/final_model.pkl","wb"))
+        pickle.dump(best_model, open(str(directory)+"/final_model.pkl","wb"))
 
     
 
