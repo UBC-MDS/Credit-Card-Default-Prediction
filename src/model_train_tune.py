@@ -174,12 +174,16 @@ def hyperparameter_tuning(preprocessor, X_train, y_train, scoring_metrics):
     print("Best hyperparameter values: ", lr_random.best_params_)
     print("Best score: %0.3f" % (lr_random.best_score_))
 
-    return lr_random.best_estimator_, lr_random.best_params_
+    return lr_random.best_estimator_
     
 
 def main(path, out_file, model_path):
+    
     # Reading the data
-    train_df = pd.read_csv(path)
+    try:
+        train_df = pd.read_csv(path)
+    except:
+        print('Error occured during reading the file from the path.')
     
     # Splitting between Features
     X_train, y_train = train_df.drop(columns=["default payment next month"]), train_df["default payment next month"]
@@ -188,13 +192,19 @@ def main(path, out_file, model_path):
     numeric_features = ['LIMIT_BAL', 'AGE'] + X_train.columns.tolist()[11:]
     #drop_features = ['ID']
 
-    preprocessor = model_preprocessor(numeric_features, categorical_features)
+    try:
+        preprocessor = model_preprocessor(numeric_features, categorical_features)
+    except:
+        print('Problem during model processing.')
 
     scoring_metrics = ["accuracy", "f1", "recall", "precision", "roc_auc"]
         
-    results_in_df = train_multiple_models(preprocessor, X_train, y_train, scoring_metrics)
-    # Output: saving the cross val score in a CSV file
+    try:
+        results_in_df = train_multiple_models(preprocessor, X_train, y_train, scoring_metrics)
+    except:
+        print('Error occured during training multiple models.')
     
+    # Output: saving the cross val score in a CSV file
     try:
         dfi.export(results_in_df, out_file)
     except:
@@ -203,7 +213,10 @@ def main(path, out_file, model_path):
 
     # Model Tuning 
     # LR was decided to be the best model for this scenario
-    best_model, best_params = hyperparameter_tuning(preprocessor, X_train, y_train, scoring_metrics)
+    try:
+        best_model = hyperparameter_tuning(preprocessor, X_train, y_train, scoring_metrics)
+    except:
+        print('Error occured during hyperparameter tuning.')
 
     try:
         pickle.dump(best_model, open(str(model_path),"wb"))
