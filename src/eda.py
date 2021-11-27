@@ -15,9 +15,9 @@ import altair as alt
 import os
 import pandas as pd
 from docopt import docopt
-
-
-alt.data_transformers.enable('data_server') 
+from altair_data_server import data_server
+from altair_saver import save
+alt.data_transformers.enable('data_server')
 alt.renderers.enable('mimetype')
 
 opt = docopt(__doc__)
@@ -53,7 +53,7 @@ def plot_cat_features(train_visual_path, output_dir):
     categorical_features,
     columns=3
   )
-  cat_plot.save(ps.path.join(output_dir, "dist_cat_feats_by_target.png"))
+  cat_plot.save(os.path.join(output_dir, "dist_cat_feats_by_target.png"))
 
 
 def plot_num_features(train_visual_path, output_dir):
@@ -74,8 +74,8 @@ def plot_num_features(train_visual_path, output_dir):
   train_df = pd.read_csv(train_visual_path)
   categorical_features = ["SEX", "EDUCATION", "MARRIAGE", 
                         "PAY_0", "PAY_2", "PAY_3", "PAY_4", "PAY_5", "PAY_6"]
-  numeric_features = list(set(X_train.columns.tolist()) - 
-  set(categorical_features))
+  numeric_features = list(set(train_df.columns.tolist()) - 
+  set(categorical_features) -set(["default payment next month"]))
   
   num_plot = alt.Chart(train_df).mark_bar().encode( 
     alt.X(alt.repeat(), type='quantitative', bin=alt.Bin(maxbins=50)), 
