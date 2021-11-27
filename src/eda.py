@@ -4,11 +4,11 @@
 """This script creates exploratory data visulizations to help with understanding
 of the credit card default data set.
 
-Usage: eda.py --train_df_path=<train_df_path> --output_dir=<output_dir>
+Usage: eda.py --train_visual_path=<train_visual_path> --output_dir=<output_dir>
 
 Options:
---train_df_path=<train_df_path>      Path including filename to training data [default: "data/processed/train.csv"]
---output_dir=<output_dir>            Path to directory where the plots will be saved [default: "results/"]
+--train_df_path=<train_visual_path>      Path including filename to training data [default: "data/processed/train_visual.csv"]
+--output_dir=<output_dir>            Path to directory where the plots will be saved [default: "results/images/"]
 """ 
 
 import altair as alt
@@ -22,14 +22,14 @@ alt.renderers.enable('mimetype')
 
 opt = docopt(__doc__)
 
-def plot_cat_features(train_df_path, output_dir):
+def plot_cat_features(train_visual_path, output_dir):
   """
   Create and save the visuazalition of distribution of categorical features for 
   the two target variable classes.
   
-  Pramaeters
+  Parameters
   ----------
-  train_df_path: string
+  train_visual_path: string
       Path including filename to training data in csv format
   output_dir: string
       Path to directory where the plots will be saved
@@ -38,7 +38,7 @@ def plot_cat_features(train_df_path, output_dir):
   ----------
   """
 
-  train_df = pd.read_csv(train_df_path)
+  train_df = pd.read_csv(train_visual_path)
   categorical_features = ["SEX", "EDUCATION", "MARRIAGE", 
                         "PAY_0", "PAY_2", "PAY_3", "PAY_4", "PAY_5", "PAY_6"]
   cat_plot = alt.Chart(train_df).mark_bar().encode(
@@ -53,17 +53,17 @@ def plot_cat_features(train_df_path, output_dir):
     categorical_features,
     columns=3
   )
-  cat_plot.save(ps.path.join(output_dir, "Distribution of categorical features by target variable.png"))
+  cat_plot.save(ps.path.join(output_dir, "dist_cat_feats_by_target.png"))
 
 
-def plot_num_features(train_df_path, output_dir):
+def plot_num_features(train_visual_path, output_dir):
   """
   Create and save the visuazalition of distribution of numeric features for 
   the two target variable classes.
   
-  Pramaeters
+  Parameters
   ----------
-  train_df_path: string
+  train_visual_path: string
       Path including filename to training data in csv format
   output_dir: string
       Path to directory where the plots will be saved
@@ -71,7 +71,7 @@ def plot_num_features(train_df_path, output_dir):
   Returns
   ----------
   """
-  train_df = pd.read_csv(train_df_path)
+  train_df = pd.read_csv(train_visual_path)
   categorical_features = ["SEX", "EDUCATION", "MARRIAGE", 
                         "PAY_0", "PAY_2", "PAY_3", "PAY_4", "PAY_5", "PAY_6"]
   numeric_features = list(set(X_train.columns.tolist()) - 
@@ -88,11 +88,11 @@ def plot_num_features(train_df_path, output_dir):
   ).repeat( 
     numeric_features, columns=3
   ) 
-  num_plot.save(os.path.join(output_dir, "Distribution of numeric features by target variable.png"))
+  num_plot.save(os.path.join(output_dir, "dist_num_feats_by_target.png"))
 
-def main(train_df_path, output_dir):
-  plot_cat_features(train_df_path, output_dir)
-  plot_num_features(train_df_path, output_dir)
+def main(train_visual_path, output_dir):
+  plot_cat_features(train_visual_path, output_dir)
+  plot_num_features(train_visual_path, output_dir)
 
 if __name__== "__main__":
-    main(opt["--train_df_path"], opt["--output_dir"])
+    main(opt["--train_visual_path"], opt["--output_dir"])
