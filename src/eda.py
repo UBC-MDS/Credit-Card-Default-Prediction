@@ -7,8 +7,8 @@ of the credit card default data set.
 Usage: eda.py --train_visual_path=<train_visual_path> --output_dir=<output_dir>
 
 Options:
---train_df_path=<train_visual_path>      Path including filename to training data [default: "data/processed/train_visual.csv"]
---output_dir=<output_dir>            Path to directory where the plots will be saved [default: "results/images/"]
+--train_visual_path=<train_visual_path>      Path including filename to training data [default: "data/processed/train_visual.csv"]
+--output_dir=<output_dir>                    Path to directory where the plots will be saved [default: "results/images/"]
 """ 
 
 import altair as alt
