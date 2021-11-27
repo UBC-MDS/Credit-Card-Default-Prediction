@@ -5,10 +5,8 @@
 
 #######################################################################################
 # Book settings
-title                       : Reports  # The title of the book. Will be placed in the left navbar.
-author                      : James Kim  # The author of the book
-copyright                   : "2021"  # Copyright year to be placed in the footer
-logo                        : logo.png  # A path to the book logo
+title                       : "Credit Card Default Prediction"  # The title of the book. Will be placed in the left navbar.
+author                      : "MDS DSCI 522 Group 18"  # The author of the book
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
