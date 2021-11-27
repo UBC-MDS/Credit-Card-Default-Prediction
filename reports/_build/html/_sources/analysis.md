@@ -1,4 +1,4 @@
-# Methods
+# Analysis
 ## Splitting and cleaning the model
 We split our data into train and test data frames with the default setting of 0.2 split ratio. We then converted the categorical features to contain more meaningful strings as their values and the outcome file is saved in the data folder as train_visual.csv file.
 
@@ -8,6 +8,7 @@ Since our data was relatively clean, we applied Standard Scaling on the numeric 
 ## Choosing the best model
 We trained and cross-validated the training dataset on Decision Tree, SVC, Random Forest and Logistic Regression. We also utilized class_weight parameter and set it as ‘balanced’ to deal with the class imbalance that was observed during the initial EDA.
 According to our model training, Logistic Regression gave the best validation scores using ROC_AUC as the scoring method.
+
 ![Validation scores of different classification models](../results/images/model_results.png)
 
 ## Hypertuning the model
