@@ -63,3 +63,11 @@ enforcement ladder](https://github.com/mozilla/diversity).
 For answers to common questions about this code of conduct, see the FAQ at
 https://www.contributor-covenant.org/faq. Translations are available at
 https://www.contributor-covenant.org/translations.
+
+## Contact
+
+The project team members can be reached by the followings: 
+Cici Du -
+David Wang - 
+Rohit Rawat -
+James Kim - james.ktkim@gmail.com
