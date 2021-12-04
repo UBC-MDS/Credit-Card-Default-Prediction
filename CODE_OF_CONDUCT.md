@@ -68,7 +68,7 @@ https://www.contributor-covenant.org/translations.
 
 The project team members can be reached by the followings: 
 
-Cici Du -ciciechodu@gmail.com
-David Wang - wangtianwei@hotmail.com
-Rohit Rawat - rrrohit28@gmail.com
-James Kim - james.ktkim@gmail.com
+- Cici Du: ciciechodu@gmail.com
+- David Wang: wangtianwei@hotmail.com
+- Rohit Rawat: rrrohit28@gmail.com
+- James Kim: james.ktkim@gmail.com
