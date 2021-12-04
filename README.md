@@ -7,9 +7,11 @@ A data analysis project titled 'Credit Card Default Prediction' for DSCI 522 (Da
 
 ## Summary
 
-This project aims to predict the default chances of a customer based on the payment history of the customer. The data has been taken from UCI Machine Learning Repository. The default rate of customers have a direct impact on the financials of a credit card company. It is important to predict and implement processes to attenuate and adopt methods to minimize this rate. By targeting customers who are at the risk of defaulting, the company can plan and mitigate the issue. The research question which we aim to answer through this analysis is:
+This project aims to predict the default chances of a customer based on the payment history of the customer. The data has been taken from UCI Machine Learning Repository. The default rate of customers has a direct impact on the financials of a credit card company. It is important to predict and implement processes to attenuate and adopt methods to minimize this rate. By targeting customers who are at the risk of default, the company can plan and mitigate the issue. The research question which we aim to answer through this analysis is:
 
-### Given characteristics (gender, education, age, marriage) and payment history of a customer, is he or she likely to default on the credit card payment next month? 
+## Aim
+
+Given characteristics (gender, education, age, marriage) and payment history of a customer, is he or she likely to default on the credit card payment next month? 
 
 ## Dataset
 
@@ -17,9 +19,9 @@ The data set used in this project contains records of credit card customers in T
 
 ## Process
 
-We will begin with basic exploratory data analysis on our training dataset, identifying the data types of features, searching for missing values, scaling some of the features and encoding categorical variables into useable features. The possible supervised learning techniques we could use are DecisionTree, Logistic Regression and SVC since we are dealing with a classification problem. We will further tune the hyperparameters of our models, and analyze feature importance as we make progress in model training. 
+We will begin with basic exploratory data analysis on our training dataset, identifying the data types of features, searching for missing values, scaling some of the features, and encoding categorical variables into useable features. The possible supervised learning techniques we could use are DecisionTree, Logistic Regression and SVC since we are dealing with a classification problem. We will further tune the hyperparameters of our models, and analyze feature importance as we make progress in model training. 
 
-After choosing our final model, we will re-fit the model on the entire training data set after preprocessing, and evaulate its performance on the test data set. At this point we will look at overall accuracy as well as misclassifications (from the confusion matrix) to assess prediction performance. We main adjust the main evaluation matric as we progress in the project.
+After choosing our final model, we will re-fit the model on the entire training data set after preprocessing and evaluate its performance on the test data set. At this point, we will look at overall accuracy as well as misclassifications (from the confusion matrix) to assess prediction performance. We also make use of Average Precision and ROC-AUC value to asses our final results as these provide us a good metric for different thresholds. We will adjust the main evaluation metric as we progress in the project.
 
 
 ## Usage
@@ -38,7 +40,7 @@ Exploratory Data Analysis:
 ```
 python src/eda.py --train_visual_path=data/processed/train_visual.csv --output_dir=results/images/
 ```
-Model builing, training and tuning the parameters:
+Model building, training and tuning the parameters:
 ```
 python src/model_train_tune.py --path=data/processed/train.csv --model_path=results/models/final_model.pkl --score_file=results/model_results.csv
 ```
