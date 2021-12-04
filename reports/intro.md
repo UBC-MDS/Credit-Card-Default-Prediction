@@ -4,7 +4,7 @@ Cici Du, David Wang, Rohit Rawat, James Kim
 # Summary and Introduction
 
 ## Executive Summary
-Here we are attempt to build a classification model using various classifiers including RBF SVM, Random Forest and Logistic Regression to predict whether the customer will default on the credit card. Our chosen classifier, Logistic Regression, performed well on the test set, with the ROC AUC score of 0.768. However, as the stronger emphasis is on correctly identifying the default class, it is alarming to see relatively low scores on both f1 and recall metrics across all the classifiers tested. It is therefore recommended to further improve this model, following the suggestions that are noted in the later portion of this report.
+Here we are attemptting to build a classification model using various classifiers including RBF SVM, Random Forest and Logistic Regression to predict whether the customer will default on the credit card. Our chosen classifier, Logistic Regression, performed well on the test set, with the ROC AUC score of 0.768. However, as the stronger emphasis is on correctly identifying the default class, it is alarming to see relatively low scores on both f1 and recall metrics across all the classifiers tested. It is therefore recommended to further improve this model, following the suggestions that are noted in the later portion of this report.
 
 
 ## Introduction
