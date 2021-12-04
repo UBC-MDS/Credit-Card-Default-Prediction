@@ -1,5 +1,5 @@
 # Analysis
-## Splitting and cleaning the model
+## Splitting and cleaning the data
 We split our data into train and test data frames with the default setting of 0.2 split ratio. We then converted the categorical features to contain more meaningful strings as their values and the outcome file is saved in the data folder as train_visual.csv file.
 
 ## Preprocessing
