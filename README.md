@@ -17,6 +17,34 @@ Given characteristics (gender, education, age, marriage) and payment history of 
 
 The data set used in this project contains records of credit card customers in Taiwan sourced by I-Cheng Yeh at the Department of Information Management, Chung Hua University, Taiwan. It was downloaded from the UCI Machine Learning Repository (Dua and Graff 2019) and can be found [here](https://archive.ics.uci.edu/ml/datasets/default+of+credit+card+clients). Each row in the data set represents variables associated with a customer and his or her credit card payment information, including a boolean value of default. There are 30,000 observations in the data set and 23 features. There are no observations with missing values or duplicated rows in the data set.
 
+The below explanations are provided for the features that are less intuitive.
+
+##### BILL_AMT1 ~ BILL_AMT6
+BILL_AMT1: amount of bill statement in September, 2005; 
+BILL_AMT2: amount of bill statement in August, 2005; 
+. . .;
+BILL_AMT6: amount of bill statement in April, 2005.
+
+##### PAY_AMT1 ~ PAY_AMT6
+PAY_AMT1: amount paid in September, 2005; 
+PAY_AMT2: amount paid in August, 2005; 
+. . .;
+PAY_AMT6: amount paid in April, 2005.
+
+##### PAY_0 ~ PAY_6:
+PAY_0: the repayment status in September, 2005;
+PAY_2: the repayment status in August, 2005; 
+. . .;
+PAY_6: the repayment status in April, 2005. 
+
+The values of PAY_0 ~ PAY_6 can be interpreted as:
+-1 = pay duly; 
+1 = payment delay for one month; 
+2 = payment delay for two months; 
+. . .
+8 = payment delay for eight months; 
+9 = payment delay for nine months and above.
+
 ## Process
 
 We will begin with basic exploratory data analysis on our training dataset, identifying the data types of features, searching for missing values, scaling some of the features, and encoding categorical variables into useable features. The possible supervised learning techniques we could use are DecisionTree, Logistic Regression and SVC since we are dealing with a classification problem. We will further tune the hyperparameters of our models, and analyze feature importance as we make progress in model training. 
