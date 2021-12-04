@@ -1,6 +1,6 @@
 # author: James Kim
 # date: 2021-11-19
-# last updated on: 2021-11-25
+# last updated on: 2021-12-03
 # last updated by: David Wang
 
 """Download the Credit Card Default dataset from a url and saves it to a local file as a csv.
@@ -20,6 +20,14 @@ opt = docopt(__doc__)
 
 def main(url, out_file):
     data = pd.read_excel(url, header=1)
+
+    if not os.path.isdir('data/raw/'):
+        os.makedirs('data/raw/')
+    if not os.path.isdir('results/images/'):
+        os.makedirs('results/images/')
+    if not os.path.isdir('results/models/'):
+        os.makedirs('results/models/')
+
     try:
         data.to_csv(out_file, index=False)
     except:
