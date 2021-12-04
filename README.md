@@ -78,10 +78,15 @@ python src/model_evaluate.py data/processed/train.csv data/processed/test.csv re
 ```
 
 ## Dependencies
-This list will continue to be modified during the project. 
-- Python 3.7.3 and Python packages:
+The complete list of packages used can be found in the [environment file](https://github.com/UBC-MDS/Credit-Card-Default-Prediction/blob/main/environment.yaml).
 
-The complete list of packages used can be found in the [environment file](https://github.com/garhwalinauna/Credit-Card-Default-Prediction/blob/main/environment.yaml).
+The steps to using the environment are given below:
+
+Creating an environment ```conda env create --file environment.yaml```
+
+Activate the environment ```conda activate credit_default```
+
+Deactivate the environment ```conda deactivate```
 
 ## License
 The Credit Card Default Prediction materials here are licensed under the Creative Commons Attribution 2.5 Canada License (CC BY 2.5 CA). If re-using/re-mixing please provide attribution and link to this webpage.
