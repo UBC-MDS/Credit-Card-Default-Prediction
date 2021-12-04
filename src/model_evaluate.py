@@ -20,13 +20,21 @@ import matplotlib.pyplot as plt
 
 
 from sklearn.model_selection import cross_val_predict
-from sklearn.metrics import ConfusionMatrixDisplay
-from sklearn.metrics import precision_recall_curve
-from sklearn.metrics import roc_curve
-from sklearn.metrics import PrecisionRecallDisplay
-from sklearn.metrics import roc_auc_score
+from sklearn.metrics import (
+    ConfusionMatrixDisplay,
+    PrecisionRecallDisplay,
+    classification_report,
+    precision_recall_curve,
+    roc_curve,
+    roc_auc_score,
+    f1_score,
+    recall_score,
+    precision_score,
+    average_precision_score
+)
 
 import numpy as np
+import dataframe_image as dfi
 
 
 opt = docopt(__doc__)
@@ -54,6 +62,15 @@ def main(train_path, test_path, model_path, out_path):
     except:
         print('Error in loading the model pickle file.')
     
+    # Classification Report
+    classification_report_df = pd.DataFrame(
+        classification_report(
+            y_test, final_model.predict(X_test), target_names=["No-churn", "Churn"], output_dict=True
+        )
+    ).T
+
+    dfi.export(classification_report_df, 'results/images/classification_report.png')
+
     # Confusion Matrix on the test results
     cm = ConfusionMatrixDisplay.from_estimator(
         final_model, X_test, y_test, values_format="d", display_labels=["No default", "Default"]
@@ -61,6 +78,7 @@ def main(train_path, test_path, model_path, out_path):
     plt.savefig('results/images/confusion_matrix.png')
     plt.clf()
     
+    # ROC AUC curve for the test results
     fpr_svc, tpr_svc, thresholds_svc = roc_curve(
         y_test, final_model.decision_function(X_test)
         )
@@ -78,6 +96,27 @@ def main(train_path, test_path, model_path, out_path):
     plt.ylabel("True positive rate (Recall)")
     plt.legend(loc="best")
     plt.savefig('results/images/roc_auc_curve.png')
+
+    # Precision Recall Curve
+    PrecisionRecallDisplay.from_estimator(final_model, X_test, y_test)
+    plt.savefig('results/images/precision_recall_curve.png')
+    plt.clf()
+
+    # Final Scores for Model
+    y_pred = final_model.predict(X_test)
+
+    final_results = {}
+    final_results['Accuracy'] = final_model.score(X_test, y_test)
+    final_results['F1'] = round(f1_score(y_test, y_pred), 3)
+    final_results['Recall'] = round(recall_score(y_test, y_pred), 3)
+    final_results['Precision'] = round(precision_score(y_test, y_pred), 3)
+    final_results['ROC AUC'] = round(roc_auc_score(y_test, final_model.decision_function(X_test)),3)
+    final_results['Average Precision'] = round(average_precision_score(y_test, final_model.decision_function(X_test)),3)
+
+
+    final_scores = pd.DataFrame(data=final_results,index=['Test Scores']).T
+    dfi.export(final_scores, 'results/images/final_scores.png')
+
 
 
 if __name__ == "__main__":
