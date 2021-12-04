@@ -20,29 +20,29 @@ The data set used in this project contains records of credit card customers in T
 The below explanations are provided for the features that are less intuitive.
 
 ##### BILL_AMT1 ~ BILL_AMT6
-BILL_AMT1: amount of bill statement in September, 2005; 
-BILL_AMT2: amount of bill statement in August, 2005; 
-. . .;
+BILL_AMT1: amount of bill statement in September, 2005.   
+BILL_AMT2: amount of bill statement in August, 2005   
+. . .  
 BILL_AMT6: amount of bill statement in April, 2005.
 
 ##### PAY_AMT1 ~ PAY_AMT6
-PAY_AMT1: amount paid in September, 2005; 
-PAY_AMT2: amount paid in August, 2005; 
-. . .;
+PAY_AMT1: amount paid in September, 2005   
+PAY_AMT2: amount paid in August, 2005  
+. . .  
 PAY_AMT6: amount paid in April, 2005.
 
 ##### PAY_0 ~ PAY_6:
-PAY_0: the repayment status in September, 2005;
-PAY_2: the repayment status in August, 2005; 
-. . .;
+PAY_0: the repayment status in September, 2005  
+PAY_2: the repayment status in August, 2005  
+. . .  
 PAY_6: the repayment status in April, 2005. 
 
-The values of PAY_0 ~ PAY_6 can be interpreted as:
--1 = pay duly; 
-1 = payment delay for one month; 
-2 = payment delay for two months; 
-. . .
-8 = payment delay for eight months; 
+The values of PAY_0 ~ PAY_6 can be interpreted as:  
+-1 = pay duly  
+1 = payment delay for one month  
+2 = payment delay for two months  
+. . .  
+8 = payment delay for eight months  
 9 = payment delay for nine months and above.
 
 ## Process
