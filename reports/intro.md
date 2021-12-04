@@ -1,3 +1,6 @@
+# Credit Card Default Prediction Project Report
+Cici Du, David Wang, Rohit Rawat, James Kim
+
 # Summary and Introduction
 
 ## Executive Summary
@@ -36,4 +39,11 @@ Distribution of categorical features
 name: Distribution of numerical features
 ---
 Distribution of numerical features
+```
+
+```{figure} ../results/images/dist_age_by_target.png
+---
+name: Distribution of age by target
+---
+Distribution of age by target
 ```
