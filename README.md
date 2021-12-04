@@ -76,6 +76,10 @@ Model evaluation:
 ```
 python src/model_evaluate.py data/processed/train.csv data/processed/test.csv results/models/final_model.pkl --out_dir=results/
 ```
+Render report:
+```
+jupyter-book build reports/ --builder pdfhtml
+```
 
 ## Dependencies
 The complete list of packages used can be found in the [environment file](https://github.com/UBC-MDS/Credit-Card-Default-Prediction/blob/main/environment.yaml).
