@@ -1,0 +1,293 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Credit Card Default Prediction</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/togglebutton.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-2 bd-sidebar site-navigation show single-page" id="site-navigation">
+    
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/jamesktkim/Reports"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/jamesktkim/Reports/issues/new?title=Issue%20on%20page%20%2Fintro.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toctree-l1 toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="intro.html#document-analysis">
+   Analysis
+  </a>
+ </li>
+ <li class="toctree-l1 toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="intro.html#document-results">
+   Results
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="summary-and-introduction">
+<h1>Summary and Introduction<a class="headerlink" href="#summary-and-introduction" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="executive-summary">
+<h2>Executive Summary<a class="headerlink" href="#executive-summary" title="Permalink to this headline">¶</a></h2>
+<p>Here we are attempt to build a classification model using various classifiers including RBF SVM, Random Forest and Logistic Regression to predict whether the customer will default on the credit card. Our chosen classifier, Logistic Regression, performed well on the test set, with the ROC AUC score of 0.768. However, as the stronger emphasis is on correctly identifying the default class, it is alarming to see relatively low scores on both f1 and recall metrics across all the classifiers tested. It is therefore recommended to further improve this model, following the suggestions that are noted in the later portion of this report.</p>
+</div>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="research-question">
+<h3>Research Question<a class="headerlink" href="#research-question" title="Permalink to this headline">¶</a></h3>
+<p>Credit cards are now an extremely common means of transaction that most of the adult consumers possess these days. It is therefore very important for the credit card issuing companies to be able to predict and work with the possibilities of their customers not being able to make their default payments. With this in mind, our research question that we aim to answer is: given characteristics (gender, education, age, marriage) and payment history of a customer, is he or she likely to default on the credit card payment next month?</p>
+</div>
+<div class="section" id="data">
+<h3>Data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h3>
+<p>The data set that we used was put together by I-Cheng Yeh at the Department of Information Management, Chung Hua University, in Taiwan. The data set itself was sourced from the UCI Machine Learning Repository and can be found here <a class="reference external" href="https://archive.ics.uci.edu/ml/datasets/default+of+credit+card+clients">https://archive.ics.uci.edu/ml/datasets/default+of+credit+card+clients</a>. Each row in the data set represents variables associated with a customer and his or her credit card payment information, including a boolean value of default. There are 30,000 observations in the data set and 23 features. There are no observations with missing values or duplicated rows in the data set.</p>
+</div>
+<div class="section" id="initial-eda">
+<h3>Initial EDA<a class="headerlink" href="#initial-eda" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="distribution-of-target-variables">
+<h4>Distribution of target variables<a class="headerlink" href="#distribution-of-target-variables" title="Permalink to this headline">¶</a></h4>
+<p>We explored the distribution of the target variables and spotted class imbalance. Our training data contained only 22.3% of class 1 (default) in the target variable. We decided to balance the class during model training by setting class_weight to ‘balanced.’</p>
+<div class="figure align-default" id="distribution-of-targets">
+<img alt="_images/dist_target.png" src="_images/dist_target.png" />
+<p class="caption"><span class="caption-number">Fig. 1 </span><span class="caption-text">Distribution of targets</span><a class="headerlink" href="#distribution-of-targets" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="distribution-of-numeric-and-categorical-features-by-target-variable">
+<h4>Distribution of numeric and categorical features by target variable<a class="headerlink" href="#distribution-of-numeric-and-categorical-features-by-target-variable" title="Permalink to this headline">¶</a></h4>
+<p>We had 22 features and we wanted to see if any feature contributed significantly to the classification of the target variable to the extent that we could see it by plotting the distribution of each feature by the target class. We plotted the distribution of each numeric and categorical feature from the training set and colored the distribution by class (default: blue, not default: orange). We saw that the distributions below overlapped for the two classes and they looked quite similar in a lot of cases.</p>
+<div class="figure align-default" id="distribution-of-categorical-features">
+<img alt="_images/dist_cat_feats_by_target.png" src="_images/dist_cat_feats_by_target.png" />
+<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Distribution of categorical features</span><a class="headerlink" href="#distribution-of-categorical-features" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="distribution-of-numerical-features">
+<img alt="_images/dist_num_feats_by_target.png" src="_images/dist_num_feats_by_target.png" />
+<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">Distribution of numerical features</span><a class="headerlink" href="#distribution-of-numerical-features" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+</div>
+</div>
+<div class="toctree-wrapper compound">
+<span id="document-analysis"></span><div class="tex2jax_ignore mathjax_ignore section" id="analysis">
+<h2>Analysis<a class="headerlink" href="#analysis" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="splitting-and-cleaning-the-model">
+<h3>Splitting and cleaning the model<a class="headerlink" href="#splitting-and-cleaning-the-model" title="Permalink to this headline">¶</a></h3>
+<p>We split our data into train and test data frames with the default setting of 0.2 split ratio. We then converted the categorical features to contain more meaningful strings as their values and the outcome file is saved in the data folder as train_visual.csv file.</p>
+</div>
+<div class="section" id="preprocessing">
+<h3>Preprocessing<a class="headerlink" href="#preprocessing" title="Permalink to this headline">¶</a></h3>
+<p>Since our data was relatively clean, we applied Standard Scaling on the numeric features and One Hot Encoding on the categorical features.</p>
+</div>
+<div class="section" id="choosing-the-best-model">
+<h3>Choosing the best model<a class="headerlink" href="#choosing-the-best-model" title="Permalink to this headline">¶</a></h3>
+<p>We trained and cross-validated the training dataset on Decision Tree, SVC, Random Forest and Logistic Regression. We also utilized class_weight parameter and set it as ‘balanced’ to deal with the class imbalance that was observed during the initial EDA.
+According to our model training, Logistic Regression gave the best validation scores using ROC_AUC as the scoring method.</p>
+<div class="figure align-default" id="validation-scores-of-different-classification-models">
+<img alt="_images/model_results.png" src="_images/model_results.png" />
+<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">Validation scores of different classification models</span><a class="headerlink" href="#validation-scores-of-different-classification-models" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="hypertuning-the-model">
+<h3>Hypertuning the model<a class="headerlink" href="#hypertuning-the-model" title="Permalink to this headline">¶</a></h3>
+<p>On our selected model, we tuned the parameters class_weight and C of the Logistic Regression. We obtained our best parameters and the best model which is saved as the pickle file.</p>
+<p><strong>C: float, default=1.0</strong><br />
+Inverse of regularization strength; must be a positive float.</p>
+<p><strong>class_weight: dict or ‘balanced’, default=None</strong><br />
+Weights associated with classes in the form {class_label: weight}.</p>
+</div>
+</div>
+<span id="document-results"></span><div class="tex2jax_ignore mathjax_ignore section" id="results">
+<h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="model-results">
+<h3>Model Results<a class="headerlink" href="#model-results" title="Permalink to this headline">¶</a></h3>
+<p>We evaluated the model from pickle on the test dataset and we obtained comparable test scores to the validation score. We plotted the Confusion Matrix and the ROC-AUC curve corresponding to the model on the predicted labels.</p>
+<div class="figure align-default" id="confusion-matrix-of-the-predictions">
+<img alt="_images/confusion_matrix.png" src="_images/confusion_matrix.png" />
+<p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">Confusion Matrix of the predictions</span><a class="headerlink" href="#confusion-matrix-of-the-predictions" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="roc-auc-curve-of-the-predictions">
+<img alt="_images/roc_auc_curve.png" src="_images/roc_auc_curve.png" />
+<p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">ROC-AUC curve of the predictions</span><a class="headerlink" href="#roc-auc-curve-of-the-predictions" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="reservations-and-suggestions">
+<h3>Reservations and Suggestions<a class="headerlink" href="#reservations-and-suggestions" title="Permalink to this headline">¶</a></h3>
+<p>Major limitation of this project is that the data was collected in 2005. Consumers’ spending behaviours and tastes must have changed since then so the results of this project should not be taken for granted and be blindly applied to the current setting. To further improve this model in the future, we suggest including more features such as income, vocation, size of the household, and debt to asset ratio. With more relevant features to base the predictions on, we should be able to predict our target class with more accuracy.</p>
+</div>
+<div class="section" id="references">
+<h3>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h3>
+<p>Dua, D., &amp; Graff, C. (2017). UCI Machine Learning Repository. Opgehaal van <a class="reference external" href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a></p>
+<p>Python Core Team. (2019). Python: A dynamic, open source programming language. Opgehaal van Python Software Foundation website: <a class="reference external" href="https://www.python.org/">https://www.python.org/</a></p>
+<p>Hunter, J. D. (2007). Matplotlib: A 2D graphics environment. Computing in science &amp; engineering, 9(3), 90.</p>
+<p>Pedregosa, F., Varoquaux, G., Gramfort, A., Michel, V., Thirion, B., Grisel, O., … Duchesnay, E. (2011). Scikit-learn: Machine Learning in Python. Journal of Machine Learning Research, 12, 2825–2830.</p>
+<p>McKinney, W. (2010). Data Structures for Statistical Computing in Python. In S. van der Walt &amp; J. Millman (Reds), Proceedings of the 9th Python in Science Conference (bll 51–56).</p>
+<p>Harris, C. R., Millman, K. J., van der Walt, S. J., Gommers, R., Virtanen, P., Cournapeau, D., … Oliphant, T. E. (2020). Array programming with NumPy. Nature, 585(7825), 357–362. doi:10.1038/s41586-020-2649-2</p>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By MDS DSCI 522 Group 18<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

@@ -7,8 +7,8 @@ of the credit card default data set.
 Usage: eda.py --train_visual_path=<train_visual_path> --output_dir=<output_dir>
 
 Options:
---train_df_path=<train_visual_path>      Path including filename to training data [default: "data/processed/train_visual.csv"]
---output_dir=<output_dir>            Path to directory where the plots will be saved [default: "results/images/"]
+--train_visual_path=<train_visual_path>      Path including filename to training data [default: "data/processed/train_visual.csv"]
+--output_dir=<output_dir>                    Path to directory where the plots will be saved [default: "results/images/"]
 """ 
 
 import altair as alt
@@ -64,7 +64,7 @@ def plot_cat_features(train_visual_path, output_dir):
   """
 
   train_df = pd.read_csv(train_visual_path)
-  categorical_features = ["SEX", "EDUCATION", "MARRIAGE", 
+  categorical_features = ["EDUCATION", "MARRIAGE", 
                         "PAY_0", "PAY_2", "PAY_3", "PAY_4", "PAY_5", "PAY_6"]
   cat_plot = alt.Chart(train_df).mark_bar().encode(
     alt.X(alt.repeat(), type='nominal'),
@@ -78,7 +78,21 @@ def plot_cat_features(train_visual_path, output_dir):
     categorical_features,
     columns=3
   )
+  
+  #plot age seperately because it requires binning
+  age_dist = alt.Chart(train_df).mark_bar().encode(
+    alt.X('AGE:N', bin=True),
+    alt.Y('count()', stack=False),
+    color='default payment next month'
+	).properties( 
+    width=200, 
+    height=200 
+	).facet(
+    column = 'default payment next month:N'
+	)
+  
   cat_plot.save(os.path.join(output_dir, "dist_cat_feats_by_target.png"))
+  age_dist.save(os.path.join(output_dir, "dist_age_by_target.png"))
 
 
 def plot_num_features(train_visual_path, output_dir):
@@ -97,10 +111,11 @@ def plot_num_features(train_visual_path, output_dir):
   ----------
   """
   train_df = pd.read_csv(train_visual_path)
-  categorical_features = ["SEX", "EDUCATION", "MARRIAGE", 
+  categorical_features = ["EDUCATION", "MARRIAGE", 
                         "PAY_0", "PAY_2", "PAY_3", "PAY_4", "PAY_5", "PAY_6"]
+  drop_feature = ["SEX"]
   numeric_features = list(set(train_df.columns.tolist()) - 
-  set(categorical_features) -set(["default payment next month"]))
+  set(categorical_features) -set(["default payment next month"]) - set(drop_feature))
   
   num_plot = alt.Chart(train_df).mark_bar().encode( 
     alt.X(alt.repeat(), type='quantitative', bin=alt.Bin(maxbins=50)), 
