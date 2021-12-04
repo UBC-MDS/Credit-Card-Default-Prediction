@@ -232,7 +232,7 @@
 </div>
 <div class="section" id="choosing-the-best-model">
 <h2>Choosing the best model<a class="headerlink" href="#choosing-the-best-model" title="Permalink to this headline">¶</a></h2>
-<p>We trained and cross-validated the training dataset on Decision Tree, SVC, Random Forest and Logistic Regression. We also utilized class_weight parameter and set it as ‘balanced’ to deal with the class imbalance that was observed during the initial EDA.
+<p>We trained and cross-validated the training dataset on Decision Tree, SVC, Random Forest and Logistic Regression. We also utilized the class_weight parameter and set it as ‘balanced’ to deal with the class imbalance that was observed during the initial EDA.
 According to our model training, Logistic Regression gave the best validation scores using ROC_AUC as the scoring method.</p>
 <div class="figure align-default" id="validation-scores-of-different-classification-models">
 <img alt="_images/model_results.png" src="_images/model_results.png" />
@@ -243,7 +243,7 @@ According to our model training, Logistic Regression gave the best validation sc
 <h2>Hypertuning the model<a class="headerlink" href="#hypertuning-the-model" title="Permalink to this headline">¶</a></h2>
 <p>On our selected model, we tuned the parameters class_weight and C of the Logistic Regression. We obtained our best parameters and the best model which is saved as the pickle file.</p>
 <p><strong>C: float, default=1.0</strong><br />
-Inverse of regularization strength; must be a positive float.</p>
+The inverse of regularization strength; must be a positive float.</p>
 <p><strong>class_weight: dict or ‘balanced’, default=None</strong><br />
 Weights associated with classes in the form {class_label: weight}.</p>
 </div>
