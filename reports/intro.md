@@ -1,4 +1,4 @@
-# Credit card default prediction 
+# Credit Card Default Prediction Project Report
 Cici Du, David Wang, Rohit Rawat, James Kim
 
 # Summary and Introduction
