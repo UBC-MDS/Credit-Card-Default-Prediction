@@ -41,7 +41,7 @@ from scipy.stats import loguniform
 
 opt = docopt(__doc__)
 
-def model_preprocessor(numeric_features, categorical_features):
+def model_preprocessor(numeric_features, categorical_features, drop_features):
     """
     Returns processed data using column transformer
 
@@ -60,6 +60,7 @@ def model_preprocessor(numeric_features, categorical_features):
     preprocessor = make_column_transformer(
         (OneHotEncoder(handle_unknown="ignore", sparse=False), categorical_features),
         (StandardScaler(), numeric_features),
+        ("drop", drop_features)
         )
     return preprocessor
 
@@ -188,12 +189,12 @@ def main(path, out_file, model_path):
     # Splitting between Features
     X_train, y_train = train_df.drop(columns=["default payment next month"]), train_df["default payment next month"]
     #Dividing the different types of features
-    categorical_features = ['SEX', 'EDUCATION', 'MARRIAGE', 'PAY_0', 'PAY_2','PAY_3', 'PAY_4', 'PAY_5', 'PAY_6']
+    categorical_features = ['EDUCATION', 'MARRIAGE', 'PAY_0', 'PAY_2','PAY_3', 'PAY_4', 'PAY_5', 'PAY_6']
     numeric_features = ['LIMIT_BAL', 'AGE'] + X_train.columns.tolist()[11:]
-    #drop_features = ['ID']
+    drop_features = ['SEX']
 
     try:
-        preprocessor = model_preprocessor(numeric_features, categorical_features)
+        preprocessor = model_preprocessor(numeric_features, categorical_features, drop_features)
     except:
         print('Problem during model processing.')
 
