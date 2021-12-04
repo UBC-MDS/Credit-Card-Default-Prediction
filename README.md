@@ -9,7 +9,9 @@ A data analysis project titled 'Credit Card Default Prediction' for DSCI 522 (Da
 
 This project aims to predict the default chances of a customer based on the payment history of the customer. The data has been taken from UCI Machine Learning Repository. The default rate of customers has a direct impact on the financials of a credit card company. It is important to predict and implement processes to attenuate and adopt methods to minimize this rate. By targeting customers who are at the risk of default, the company can plan and mitigate the issue. The research question which we aim to answer through this analysis is:
 
-### Given characteristics (gender, education, age, marriage) and payment history of a customer, is he or she likely to default on the credit card payment next month? 
+## Aim
+
+Given characteristics (gender, education, age, marriage) and payment history of a customer, is he or she likely to default on the credit card payment next month? 
 
 ## Dataset
 
