@@ -7,7 +7,7 @@ Credit cards are now an extremely common means of transaction that most of the a
 The data set that we used was put together by I-Cheng Yeh at the Department of Information Management, Chung Hua University, in Taiwan. The data set itself was sourced from the UCI Machine Learning Repository and can be found here https://archive.ics.uci.edu/ml/datasets/default+of+credit+card+clients. Each row in the data set represents variables associated with a customer and his or her credit card payment information, including a boolean value of default. There are 30,000 observations in the data set and 23 features. There are no observations with missing values or duplicated rows in the data set.
 ## Initial EDA
 ### Distribution of target variables 
-We explored the distribution of the target variables and spotted class imbalance. Our training data contained only 22.3% of class 1 (default) in the target variable. We decided to balance the class during model training by setting class_weight to ‘balanced’.
+We explored the distribution of the target variables and spotted class imbalance. Our training data contained only 22.3% of class 1 (default) in the target variable. We decided to balance the class during model training by setting class_weight to ‘balanced.’
 
 ```{figure} ../results/images/dist_target.png
 ---
