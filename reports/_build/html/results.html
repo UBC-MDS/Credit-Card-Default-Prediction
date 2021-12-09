@@ -86,7 +86,7 @@
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="intro.html">
-   Executive Summary
+   Credit Card Default Prediction Project Report
   </a>
  </li>
 </ul>
@@ -218,19 +218,34 @@
 <h1>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="model-results">
 <h2>Model Results<a class="headerlink" href="#model-results" title="Permalink to this headline">¶</a></h2>
-<p>We evaluated the model from pickle on the test dataset and we obtained comparable test scores to the validation score. We plotted the Confusion Matrix and the ROC-AUC curve corresponding to the model on the predicted labels.</p>
+<p>We evaluated the model from pickle on the test dataset and we obtained comparable test scores to the validation score. We begin our analysis by looking at the classification report provided below.</p>
+<div class="figure align-default" id="classification-report">
+<img alt="_images/classification_report.png" src="_images/classification_report.png" />
+<p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">Classification report of the predictions</span><a class="headerlink" href="#classification-report" title="Permalink to this image">¶</a></p>
+</div>
+<p>We observe that the recall for the weighted average is better, with a higher F-1 score as well. This would mean that even though we have a class imbalance, the model performs fairly well for both categories. Another way to visualize this is by looking at the Confusion Matrix plotted below.</p>
 <div class="figure align-default" id="confusion-matrix-of-the-predictions">
 <img alt="_images/confusion_matrix.png" src="_images/confusion_matrix.png" />
-<p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">Confusion Matrix of the predictions</span><a class="headerlink" href="#confusion-matrix-of-the-predictions" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">Confusion Matrix of the predictions</span><a class="headerlink" href="#confusion-matrix-of-the-predictions" title="Permalink to this image">¶</a></p>
+</div>
+<p>The limitation with these metrics is that they are evaluated at the default threshold. To get a better estimate of our model performance we look at two metrics: Average Precision Score and ROC-AUC score which can be visualized in the plots shown below.</p>
+<div class="figure align-default" id="precision-recall-plot-of-the-predictions">
+<img alt="_images/precision_recall_curve.png" src="_images/precision_recall_curve.png" />
+<p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">Precision-Recall plot of the predictions</span><a class="headerlink" href="#precision-recall-plot-of-the-predictions" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-default" id="roc-auc-curve-of-the-predictions">
 <img alt="_images/roc_auc_curve.png" src="_images/roc_auc_curve.png" />
-<p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">ROC-AUC curve of the predictions</span><a class="headerlink" href="#roc-auc-curve-of-the-predictions" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">ROC-AUC curve of the predictions</span><a class="headerlink" href="#roc-auc-curve-of-the-predictions" title="Permalink to this image">¶</a></p>
+</div>
+<p>Since the Average Precision score is used for models having severe class imbalance, we use the ROC-AUC value to assess our final model. We are choosing ROC-AUC score over the F-1 score because we prefer a score that works well across different thresholds of the decision boundary. The average scores given by these metrics, along with other relevant scores are shown below.</p>
+<div class="figure align-default" id="final-scoring-metrics-of-the-predictions">
+<img alt="_images/final_scores.png" src="_images/final_scores.png" />
+<p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text">Final scoring metrics of the predictions</span><a class="headerlink" href="#final-scoring-metrics-of-the-predictions" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="reservations-and-suggestions">
 <h2>Reservations and Suggestions<a class="headerlink" href="#reservations-and-suggestions" title="Permalink to this headline">¶</a></h2>
-<p>Major limitation of this project is that the data was collected in 2005. Consumers’ spending behaviours and tastes must have changed since then so the results of this project should not be taken for granted and be blindly applied to the current setting. To further improve this model in the future, we suggest including more features such as income, vocation, size of the household, and debt to asset ratio. With more relevant features to base the predictions on, we should be able to predict our target class with more accuracy.</p>
+<p>The major limitation of this project is that the data was collected in 2005. Consumers’ spending behaviours and tastes must have changed since then so the results of this project should not be taken for granted and be blindly applied to the current setting. To further improve this model in the future, we suggest including more features such as income, vocation, size of the household, and debt to asset ratio. With more relevant features to base the predictions on, we should be able to predict our target class with more accuracy.</p>
 </div>
 <div class="section" id="references">
 <h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>

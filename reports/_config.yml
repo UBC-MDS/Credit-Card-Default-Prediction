@@ -16,7 +16,7 @@ execute:
 # Define the name of the latex output file for PDF builds
 latex:
   latex_documents:
-    targetname: book.tex
+    targetname: credit_card_default_prediction_report.tex
 
 # Add a bibtex file so that we can create citations
 bibtex_bibfiles:
@@ -33,3 +33,6 @@ repository:
 html:
   use_issues_button: true
   use_repository_button: true
+
+latex:
+  latex_engine: pdflatex

@@ -142,17 +142,21 @@
         
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="summary-and-introduction">
+  <div class="tex2jax_ignore mathjax_ignore section" id="credit-card-default-prediction-project-report">
+<h1>Credit Card Default Prediction Project Report<a class="headerlink" href="#credit-card-default-prediction-project-report" title="Permalink to this headline">¶</a></h1>
+<p>Cici Du, David Wang, Rohit Rawat, James Kim</p>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="summary-and-introduction">
 <h1>Summary and Introduction<a class="headerlink" href="#summary-and-introduction" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="executive-summary">
 <h2>Executive Summary<a class="headerlink" href="#executive-summary" title="Permalink to this headline">¶</a></h2>
-<p>Here we are attempt to build a classification model using various classifiers including RBF SVM, Random Forest and Logistic Regression to predict whether the customer will default on the credit card. Our chosen classifier, Logistic Regression, performed well on the test set, with the ROC AUC score of 0.768. However, as the stronger emphasis is on correctly identifying the default class, it is alarming to see relatively low scores on both f1 and recall metrics across all the classifiers tested. It is therefore recommended to further improve this model, following the suggestions that are noted in the later portion of this report.</p>
+<p>Here we are building a classification model using various classifiers including RBF SVM, Random Forest and Logistic Regression to predict whether the customer will default on the credit card. Our chosen classifier, Logistic Regression, performed well on the test set, with the ROC AUC score of 0.768. However, as the stronger emphasis is on correctly identifying the default class, it is alarming to see relatively low scores on both f1 and recall metrics across all the classifiers tested. It is therefore recommended to further improve this model, following the suggestions that are noted in the latter portion of this report.</p>
 </div>
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="research-question">
 <h3>Research Question<a class="headerlink" href="#research-question" title="Permalink to this headline">¶</a></h3>
-<p>Credit cards are now an extremely common means of transaction that most of the adult consumers possess these days. It is therefore very important for the credit card issuing companies to be able to predict and work with the possibilities of their customers not being able to make their default payments. With this in mind, our research question that we aim to answer is: given characteristics (gender, education, age, marriage) and payment history of a customer, is he or she likely to default on the credit card payment next month?</p>
+<p>Credit cards are now an extremely common means of transaction that most adult consumers possess these days. It is therefore very important for credit card issuing companies to be able to predict and work with the possibilities of their customers not being able to make their default payments. With this in mind, the research question that we aim to answer is: given characteristics (gender, education, age, marriage) and payment history of a customer, is he or she likely to default on the credit card payment next month?</p>
 </div>
 <div class="section" id="data">
 <h3>Data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h3>
@@ -179,14 +183,18 @@
 <img alt="_images/dist_num_feats_by_target.png" src="_images/dist_num_feats_by_target.png" />
 <p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">Distribution of numerical features</span><a class="headerlink" href="#distribution-of-numerical-features" title="Permalink to this image">¶</a></p>
 </div>
+<div class="figure align-default" id="distribution-of-age-by-target">
+<img alt="_images/dist_age_by_target.png" src="_images/dist_age_by_target.png" />
+<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">Distribution of age by target</span><a class="headerlink" href="#distribution-of-age-by-target" title="Permalink to this image">¶</a></p>
+</div>
 </div>
 </div>
 </div>
 <div class="toctree-wrapper compound">
 <span id="document-analysis"></span><div class="tex2jax_ignore mathjax_ignore section" id="analysis">
 <h2>Analysis<a class="headerlink" href="#analysis" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="splitting-and-cleaning-the-model">
-<h3>Splitting and cleaning the model<a class="headerlink" href="#splitting-and-cleaning-the-model" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="splitting-and-cleaning-the-data">
+<h3>Splitting and cleaning the data<a class="headerlink" href="#splitting-and-cleaning-the-data" title="Permalink to this headline">¶</a></h3>
 <p>We split our data into train and test data frames with the default setting of 0.2 split ratio. We then converted the categorical features to contain more meaningful strings as their values and the outcome file is saved in the data folder as train_visual.csv file.</p>
 </div>
 <div class="section" id="preprocessing">
@@ -195,18 +203,18 @@
 </div>
 <div class="section" id="choosing-the-best-model">
 <h3>Choosing the best model<a class="headerlink" href="#choosing-the-best-model" title="Permalink to this headline">¶</a></h3>
-<p>We trained and cross-validated the training dataset on Decision Tree, SVC, Random Forest and Logistic Regression. We also utilized class_weight parameter and set it as ‘balanced’ to deal with the class imbalance that was observed during the initial EDA.
+<p>We trained and cross-validated the training dataset on Decision Tree, SVC, Random Forest and Logistic Regression. We also utilized the class_weight parameter and set it as ‘balanced’ to deal with the class imbalance that was observed during the initial EDA.
 According to our model training, Logistic Regression gave the best validation scores using ROC_AUC as the scoring method.</p>
 <div class="figure align-default" id="validation-scores-of-different-classification-models">
 <img alt="_images/model_results.png" src="_images/model_results.png" />
-<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">Validation scores of different classification models</span><a class="headerlink" href="#validation-scores-of-different-classification-models" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">Validation scores of different classification models</span><a class="headerlink" href="#validation-scores-of-different-classification-models" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="hypertuning-the-model">
 <h3>Hypertuning the model<a class="headerlink" href="#hypertuning-the-model" title="Permalink to this headline">¶</a></h3>
 <p>On our selected model, we tuned the parameters class_weight and C of the Logistic Regression. We obtained our best parameters and the best model which is saved as the pickle file.</p>
 <p><strong>C: float, default=1.0</strong><br />
-Inverse of regularization strength; must be a positive float.</p>
+The inverse of regularization strength; must be a positive float.</p>
 <p><strong>class_weight: dict or ‘balanced’, default=None</strong><br />
 Weights associated with classes in the form {class_label: weight}.</p>
 </div>
@@ -215,19 +223,34 @@ Weights associated with classes in the form {class_label: weight}.</p>
 <h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="model-results">
 <h3>Model Results<a class="headerlink" href="#model-results" title="Permalink to this headline">¶</a></h3>
-<p>We evaluated the model from pickle on the test dataset and we obtained comparable test scores to the validation score. We plotted the Confusion Matrix and the ROC-AUC curve corresponding to the model on the predicted labels.</p>
+<p>We evaluated the model from pickle on the test dataset and we obtained comparable test scores to the validation score. We begin our analysis by looking at the classification report provided below.</p>
+<div class="figure align-default" id="classification-report">
+<img alt="_images/classification_report.png" src="_images/classification_report.png" />
+<p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">Classification report of the predictions</span><a class="headerlink" href="#classification-report" title="Permalink to this image">¶</a></p>
+</div>
+<p>We observe that the recall for the weighted average is better, with a higher F-1 score as well. This would mean that even though we have a class imbalance, the model performs fairly well for both categories. Another way to visualize this is by looking at the Confusion Matrix plotted below.</p>
 <div class="figure align-default" id="confusion-matrix-of-the-predictions">
 <img alt="_images/confusion_matrix.png" src="_images/confusion_matrix.png" />
-<p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">Confusion Matrix of the predictions</span><a class="headerlink" href="#confusion-matrix-of-the-predictions" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">Confusion Matrix of the predictions</span><a class="headerlink" href="#confusion-matrix-of-the-predictions" title="Permalink to this image">¶</a></p>
+</div>
+<p>The limitation with these metrics is that they are evaluated at the default threshold. To get a better estimate of our model performance we look at two metrics: Average Precision Score and ROC-AUC score which can be visualized in the plots shown below.</p>
+<div class="figure align-default" id="precision-recall-plot-of-the-predictions">
+<img alt="_images/precision_recall_curve.png" src="_images/precision_recall_curve.png" />
+<p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">Precision-Recall plot of the predictions</span><a class="headerlink" href="#precision-recall-plot-of-the-predictions" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-default" id="roc-auc-curve-of-the-predictions">
 <img alt="_images/roc_auc_curve.png" src="_images/roc_auc_curve.png" />
-<p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">ROC-AUC curve of the predictions</span><a class="headerlink" href="#roc-auc-curve-of-the-predictions" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">ROC-AUC curve of the predictions</span><a class="headerlink" href="#roc-auc-curve-of-the-predictions" title="Permalink to this image">¶</a></p>
+</div>
+<p>Since the Average Precision score is used for models having severe class imbalance, we use the ROC-AUC value to assess our final model. We are choosing ROC-AUC score over the F-1 score because we prefer a score that works well across different thresholds of the decision boundary. The average scores given by these metrics, along with other relevant scores are shown below.</p>
+<div class="figure align-default" id="final-scoring-metrics-of-the-predictions">
+<img alt="_images/final_scores.png" src="_images/final_scores.png" />
+<p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text">Final scoring metrics of the predictions</span><a class="headerlink" href="#final-scoring-metrics-of-the-predictions" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="reservations-and-suggestions">
 <h3>Reservations and Suggestions<a class="headerlink" href="#reservations-and-suggestions" title="Permalink to this headline">¶</a></h3>
-<p>Major limitation of this project is that the data was collected in 2005. Consumers’ spending behaviours and tastes must have changed since then so the results of this project should not be taken for granted and be blindly applied to the current setting. To further improve this model in the future, we suggest including more features such as income, vocation, size of the household, and debt to asset ratio. With more relevant features to base the predictions on, we should be able to predict our target class with more accuracy.</p>
+<p>The major limitation of this project is that the data was collected in 2005. Consumers’ spending behaviours and tastes must have changed since then so the results of this project should not be taken for granted and be blindly applied to the current setting. To further improve this model in the future, we suggest including more features such as income, vocation, size of the household, and debt to asset ratio. With more relevant features to base the predictions on, we should be able to predict our target class with more accuracy.</p>
 </div>
 <div class="section" id="references">
 <h3>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h3>

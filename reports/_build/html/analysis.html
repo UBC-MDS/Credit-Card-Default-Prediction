@@ -52,7 +52,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Results" href="results.html" />
-    <link rel="prev" title="Executive Summary" href="intro.html" />
+    <link rel="prev" title="Credit Card Default Prediction Project Report" href="intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -87,7 +87,7 @@
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="intro.html">
-   Executive Summary
+   Credit Card Default Prediction Project Report
   </a>
  </li>
 </ul>
@@ -190,8 +190,8 @@
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#splitting-and-cleaning-the-model">
-   Splitting and cleaning the model
+  <a class="reference internal nav-link" href="#splitting-and-cleaning-the-data">
+   Splitting and cleaning the data
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -222,8 +222,8 @@
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="analysis">
 <h1>Analysis<a class="headerlink" href="#analysis" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="splitting-and-cleaning-the-model">
-<h2>Splitting and cleaning the model<a class="headerlink" href="#splitting-and-cleaning-the-model" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="splitting-and-cleaning-the-data">
+<h2>Splitting and cleaning the data<a class="headerlink" href="#splitting-and-cleaning-the-data" title="Permalink to this headline">¶</a></h2>
 <p>We split our data into train and test data frames with the default setting of 0.2 split ratio. We then converted the categorical features to contain more meaningful strings as their values and the outcome file is saved in the data folder as train_visual.csv file.</p>
 </div>
 <div class="section" id="preprocessing">
@@ -232,18 +232,18 @@
 </div>
 <div class="section" id="choosing-the-best-model">
 <h2>Choosing the best model<a class="headerlink" href="#choosing-the-best-model" title="Permalink to this headline">¶</a></h2>
-<p>We trained and cross-validated the training dataset on Decision Tree, SVC, Random Forest and Logistic Regression. We also utilized class_weight parameter and set it as ‘balanced’ to deal with the class imbalance that was observed during the initial EDA.
+<p>We trained and cross-validated the training dataset on Decision Tree, SVC, Random Forest and Logistic Regression. We also utilized the class_weight parameter and set it as ‘balanced’ to deal with the class imbalance that was observed during the initial EDA.
 According to our model training, Logistic Regression gave the best validation scores using ROC_AUC as the scoring method.</p>
 <div class="figure align-default" id="validation-scores-of-different-classification-models">
 <img alt="_images/model_results.png" src="_images/model_results.png" />
-<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">Validation scores of different classification models</span><a class="headerlink" href="#validation-scores-of-different-classification-models" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">Validation scores of different classification models</span><a class="headerlink" href="#validation-scores-of-different-classification-models" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="hypertuning-the-model">
 <h2>Hypertuning the model<a class="headerlink" href="#hypertuning-the-model" title="Permalink to this headline">¶</a></h2>
 <p>On our selected model, we tuned the parameters class_weight and C of the Logistic Regression. We obtained our best parameters and the best model which is saved as the pickle file.</p>
 <p><strong>C: float, default=1.0</strong><br />
-Inverse of regularization strength; must be a positive float.</p>
+The inverse of regularization strength; must be a positive float.</p>
 <p><strong>class_weight: dict or ‘balanced’, default=None</strong><br />
 Weights associated with classes in the form {class_label: weight}.</p>
 </div>
@@ -278,7 +278,7 @@ Weights associated with classes in the form {class_label: weight}.</p>
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Executive Summary</p>
+            <p class="prev-next-title">Credit Card Default Prediction Project Report</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="results.html" title="next page">

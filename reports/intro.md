@@ -1,12 +1,15 @@
+# Credit Card Default Prediction Project Report
+Cici Du, David Wang, Rohit Rawat, James Kim
+
 # Summary and Introduction
 
 ## Executive Summary
-Here we are attempt to build a classification model using various classifiers including RBF SVM, Random Forest and Logistic Regression to predict whether the customer will default on the credit card. Our chosen classifier, Logistic Regression, performed well on the test set, with the ROC AUC score of 0.768. However, as the stronger emphasis is on correctly identifying the default class, it is alarming to see relatively low scores on both f1 and recall metrics across all the classifiers tested. It is therefore recommended to further improve this model, following the suggestions that are noted in the later portion of this report.
+Here we are building a classification model using various classifiers including RBF SVM, Random Forest and Logistic Regression to predict whether the customer will default on the credit card. Our chosen classifier, Logistic Regression, performed well on the test set, with the ROC AUC score of 0.768. However, as the stronger emphasis is on correctly identifying the default class, it is alarming to see relatively low scores on both f1 and recall metrics across all the classifiers tested. It is therefore recommended to further improve this model, following the suggestions that are noted in the latter portion of this report.
 
 
 ## Introduction
 ### Research Question
-Credit cards are now an extremely common means of transaction that most of the adult consumers possess these days. It is therefore very important for the credit card issuing companies to be able to predict and work with the possibilities of their customers not being able to make their default payments. With this in mind, our research question that we aim to answer is: given characteristics (gender, education, age, marriage) and payment history of a customer, is he or she likely to default on the credit card payment next month?
+Credit cards are now an extremely common means of transaction that most adult consumers possess these days. It is therefore very important for credit card issuing companies to be able to predict and work with the possibilities of their customers not being able to make their default payments. With this in mind, the research question that we aim to answer is: given characteristics (gender, education, age, marriage) and payment history of a customer, is he or she likely to default on the credit card payment next month?
 ### Data 
 The data set that we used was put together by I-Cheng Yeh at the Department of Information Management, Chung Hua University, in Taiwan. The data set itself was sourced from the UCI Machine Learning Repository and can be found here https://archive.ics.uci.edu/ml/datasets/default+of+credit+card+clients. Each row in the data set represents variables associated with a customer and his or her credit card payment information, including a boolean value of default. There are 30,000 observations in the data set and 23 features. There are no observations with missing values or duplicated rows in the data set.
 ### Initial EDA
@@ -36,4 +39,11 @@ Distribution of categorical features
 name: Distribution of numerical features
 ---
 Distribution of numerical features
+```
+
+```{figure} ../results/images/dist_age_by_target.png
+---
+name: Distribution of age by target
+---
+Distribution of age by target
 ```
