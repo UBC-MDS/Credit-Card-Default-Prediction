@@ -49,11 +49,17 @@ Model evaluation:
 python src/model_evaluate.py data/processed/train.csv data/processed/test.csv results/models/final_model.pkl --out_dir=results/
 ```
 
+## Using Docker
+
+### Dependency Diagram of the Makefile
+![](Makefile.png)
+
 ## Dependencies
 This list will continue to be modified during the project. 
 - Python 3.7.3 and Python packages:
 
 The complete list of packages used can be found in the [environment file](https://github.com/garhwalinauna/Credit-Card-Default-Prediction/blob/main/environment.yaml).
+
 
 ## License
 The Credit Card Default Prediction materials here are licensed under the Creative Commons Attribution 2.5 Canada License (CC BY 2.5 CA). If re-using/re-mixing please provide attribution and link to this webpage.
