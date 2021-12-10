@@ -33,9 +33,9 @@ RUN conda install --quiet -y -c conda-forge \
     "scipy=1.7.*"
 
 RUN pip install \
-	"mglearn==0.1.*" \
-	"psutil==5.8.*" \
-	"selenium==4.1.*" \
-	"dataframe-image==0.1.*" \
-	"jupyter-book==0.12.*"
+	"mglearn==0.1.9" \
+	"psutil==5.8.0" \
+	"selenium==3.141.0" \
+	"dataframe-image==0.1.1" \
+	"jupyter-book==0.12.1"
 

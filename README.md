@@ -81,6 +81,11 @@ Render report:
 jupyter-book build reports/ --builder pdfhtml
 ```
 
+## Using Docker
+
+### Dependency Diagram of the Makefile
+![](Makefile.png)
+
 ## Dependencies
 The complete list of packages used can be found in the [environment file](https://github.com/UBC-MDS/Credit-Card-Default-Prediction/blob/main/environment.yaml).
 
@@ -91,6 +96,7 @@ Creating an environment ```conda env create --file environment.yaml```
 Activate the environment ```conda activate credit_default```
 
 Deactivate the environment ```conda deactivate```
+
 
 ## License
 The Credit Card Default Prediction materials here are licensed under the Creative Commons Attribution 2.5 Canada License (CC BY 2.5 CA). If re-using/re-mixing please provide attribution and link to this webpage.
