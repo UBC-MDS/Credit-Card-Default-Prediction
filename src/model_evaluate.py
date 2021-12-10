@@ -102,6 +102,19 @@ def main(train_path, test_path, model_path, out_path):
     plt.savefig('results/images/precision_recall_curve.png')
     plt.clf()
 
+    # Model coefficients
+    categorical_columns = final_model.named_steps["columntransformer"].named_transformers_["onehotencoder"].get_feature_names_out().tolist()
+    numeric_columns = final_model.named_steps["columntransformer"].named_transformers_["standardscaler"].get_feature_names_out().tolist()
+
+    pipe_new_coeffs = final_model.named_steps["logisticregression"].coef_.tolist()
+    model_coefficients = pd.DataFrame(
+    data={"features": categorical_columns + numeric_columns,
+          "coefficients": pipe_new_coeffs[0],
+         "magnitude": np.abs(pipe_new_coeffs[0])}
+    ).sort_values(by="magnitude", ascending=False).reset_index(drop=True)
+
+    dfi.export(model_coefficients.head(n=10), 'results/images/model_coefficients.png')
+
     # Final Scores for Model
     y_pred = final_model.predict(X_test)
 
