@@ -123,7 +123,7 @@ def train_multiple_models(preprocessor, X_train, y_train, scoring_metrics):
     results = {}
     for i in models:
         pipe_temp = make_pipeline(preprocessor, models[i])
-        results[i] = mean_cross_val_scores(pipe_temp, X_train, y_train, scoring=scoring_metrics)
+        results[i] = mean_cross_val_scores(pipe_temp, X_train, y_train, return_train_score=True, scoring=scoring_metrics)
     
     return pd.DataFrame(results)
     
@@ -205,9 +205,10 @@ def main(path, out_file, model_path):
     except:
         print('Error occured during training multiple models.')
     
-    # Output: saving the cross val score in a CSV file
+    # Output: saving the cross val score in a CSV file & a PNG file
     try:
         dfi.export(results_in_df, out_file)
+        dfi.export(results_in_df, 'results/images/model_results.png')
     except:
         os.makedirs(os.path.dirname(out_file))
         dfi.export(results_in_df, out_file)
