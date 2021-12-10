@@ -34,7 +34,7 @@ RUN conda install --quiet -y -c conda-forge \
 
 RUN pip install \
 	"mglearn==0.1.9" \
-	"psutil==5.8.0" \
+	# "psutil==5.8.0" \
 	"selenium==3.141.0" \
 	"dataframe-image==0.1.1" \
 	"jupyter-book==0.12.1"
