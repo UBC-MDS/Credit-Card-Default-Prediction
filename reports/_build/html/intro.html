@@ -223,29 +223,34 @@ Weights associated with classes in the form {class_label: weight}.</p>
 <h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="model-results">
 <h3>Model Results<a class="headerlink" href="#model-results" title="Permalink to this headline">¶</a></h3>
+<p>First, here is the list of top ten features in terms of regression coefficient magnitude. These are the features that have the most impact on deciding the target class in our selected model.</p>
+<div class="figure align-default" id="model-coefficients">
+<img alt="_images/model_coefficients.png" src="_images/model_coefficients.png" />
+<p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">Feature coefficients</span><a class="headerlink" href="#model-coefficients" title="Permalink to this image">¶</a></p>
+</div>
 <p>We evaluated the model from pickle on the test dataset and we obtained comparable test scores to the validation score. We begin our analysis by looking at the classification report provided below.</p>
 <div class="figure align-default" id="classification-report">
 <img alt="_images/classification_report.png" src="_images/classification_report.png" />
-<p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">Classification report of the predictions</span><a class="headerlink" href="#classification-report" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">Classification report of the predictions</span><a class="headerlink" href="#classification-report" title="Permalink to this image">¶</a></p>
 </div>
 <p>We observe that the recall for the weighted average is better, with a higher F-1 score as well. This would mean that even though we have a class imbalance, the model performs fairly well for both categories. Another way to visualize this is by looking at the Confusion Matrix plotted below.</p>
 <div class="figure align-default" id="confusion-matrix-of-the-predictions">
 <img alt="_images/confusion_matrix.png" src="_images/confusion_matrix.png" />
-<p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">Confusion Matrix of the predictions</span><a class="headerlink" href="#confusion-matrix-of-the-predictions" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">Confusion Matrix of the predictions</span><a class="headerlink" href="#confusion-matrix-of-the-predictions" title="Permalink to this image">¶</a></p>
 </div>
 <p>The limitation with these metrics is that they are evaluated at the default threshold. To get a better estimate of our model performance we look at two metrics: Average Precision Score and ROC-AUC score which can be visualized in the plots shown below.</p>
 <div class="figure align-default" id="precision-recall-plot-of-the-predictions">
 <img alt="_images/precision_recall_curve.png" src="_images/precision_recall_curve.png" />
-<p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">Precision-Recall plot of the predictions</span><a class="headerlink" href="#precision-recall-plot-of-the-predictions" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">Precision-Recall plot of the predictions</span><a class="headerlink" href="#precision-recall-plot-of-the-predictions" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-default" id="roc-auc-curve-of-the-predictions">
 <img alt="_images/roc_auc_curve.png" src="_images/roc_auc_curve.png" />
-<p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">ROC-AUC curve of the predictions</span><a class="headerlink" href="#roc-auc-curve-of-the-predictions" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text">ROC-AUC curve of the predictions</span><a class="headerlink" href="#roc-auc-curve-of-the-predictions" title="Permalink to this image">¶</a></p>
 </div>
 <p>Since the Average Precision score is used for models having severe class imbalance, we use the ROC-AUC value to assess our final model. We are choosing ROC-AUC score over the F-1 score because we prefer a score that works well across different thresholds of the decision boundary. The average scores given by these metrics, along with other relevant scores are shown below.</p>
 <div class="figure align-default" id="final-scoring-metrics-of-the-predictions">
 <img alt="_images/final_scores.png" src="_images/final_scores.png" />
-<p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text">Final scoring metrics of the predictions</span><a class="headerlink" href="#final-scoring-metrics-of-the-predictions" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 11 </span><span class="caption-text">Final scoring metrics of the predictions</span><a class="headerlink" href="#final-scoring-metrics-of-the-predictions" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="reservations-and-suggestions">

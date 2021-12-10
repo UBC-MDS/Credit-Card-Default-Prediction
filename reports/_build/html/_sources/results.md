@@ -1,6 +1,17 @@
 # Results
 
 ## Model Results
+
+First, here is the list of top ten features in terms of regression coefficient magnitude. These are the features that have the most impact on deciding the target class in our selected model. 
+
+```{figure} ../results/images/model_coefficients.png
+---
+name: Model coefficients
+---
+Feature coefficients
+```
+
+
 We evaluated the model from pickle on the test dataset and we obtained comparable test scores to the validation score. We begin our analysis by looking at the classification report provided below.
 
 ```{figure} ../results/images/classification_report.png
