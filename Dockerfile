@@ -39,6 +39,6 @@ RUN pip install \
     "dataframe-image==0.1.1" \
     "jupyter-book==0.12.1" \
     "xlrd==1.2.*" \
-    "altair-data-server==0.4.*"
+    "altair-data-server==0.4.*" \
     "pyppeteer==0.2.*"
 
