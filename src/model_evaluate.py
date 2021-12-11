@@ -34,7 +34,6 @@ from sklearn.metrics import (
 )
 
 import numpy as np
-import dataframe_image as dfi
 
 
 opt = docopt(__doc__)
@@ -69,7 +68,13 @@ def main(train_path, test_path, model_path, out_path):
         )
     ).T
 
-    dfi.export(classification_report_df, 'results/images/classification_report.png')
+    classification_report_df = classification_report_df.round(decimals=3)
+    ax = plt.subplot(111, frame_on=False)
+    ax.xaxis.set_visible(False)
+    ax.yaxis.set_visible(False)  #
+    pd.plotting.table(ax, classification_report_df, loc='center')
+    plt.savefig('results/images/classification_report.png', bbox_inches='tight', dpi=600)
+    plt.clf()
 
     # Confusion Matrix on the test results
     cm = ConfusionMatrixDisplay.from_estimator(
@@ -96,6 +101,7 @@ def main(train_path, test_path, model_path, out_path):
     plt.ylabel("True positive rate (Recall)")
     plt.legend(loc="best")
     plt.savefig('results/images/roc_auc_curve.png')
+    plt.clf()
 
     # Precision Recall Curve
     PrecisionRecallDisplay.from_estimator(final_model, X_test, y_test)
@@ -113,7 +119,13 @@ def main(train_path, test_path, model_path, out_path):
          "magnitude": np.abs(pipe_new_coeffs[0])}
     ).sort_values(by="magnitude", ascending=False).reset_index(drop=True)
 
-    dfi.export(model_coefficients.head(n=10), 'results/images/model_coefficients.png')
+    model_coeff = pd.DataFrame(model_coefficients.head(n=10)).round(decimals=3)
+    ax = plt.subplot(111, frame_on=False)
+    ax.xaxis.set_visible(False)
+    ax.yaxis.set_visible(False)  #
+    pd.plotting.table(ax, model_coeff, loc='center')
+    plt.savefig('results/images/model_coefficients.png', bbox_inches='tight', dpi=600)
+    plt.clf()
 
     # Final Scores for Model
     y_pred = final_model.predict(X_test)
@@ -127,8 +139,12 @@ def main(train_path, test_path, model_path, out_path):
     final_results['Average Precision'] = round(average_precision_score(y_test, final_model.decision_function(X_test)),3)
 
 
-    final_scores = pd.DataFrame(data=final_results,index=['Test Scores']).T
-    dfi.export(final_scores, 'results/images/final_scores.png')
+    final_scores = pd.DataFrame(data=final_results,index=['Test Scores']).T.round(decimals=3)
+    ax = plt.subplot(111, frame_on=False)
+    ax.xaxis.set_visible(False)
+    ax.yaxis.set_visible(False)  #
+    pd.plotting.table(ax, final_scores, loc='center')
+    plt.savefig('results/images/final_scores.png', bbox_inches='tight', dpi=600)
 
 
 
