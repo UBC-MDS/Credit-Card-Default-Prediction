@@ -38,5 +38,5 @@ RUN pip install \
     "selenium==3.141.0" \
     "dataframe-image==0.1.1" \
     "jupyter-book==0.12.1" \
-    "xlrd==1.0.*"
+    "xlrd==1.2.*"
 
