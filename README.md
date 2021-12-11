@@ -49,7 +49,7 @@ The values of PAY_0 ~ PAY_6 can be interpreted as:
 
 We will begin with basic exploratory data analysis on our training dataset, identifying the data types of features, searching for missing values, scaling some of the features, and encoding categorical variables into useable features. The possible supervised learning techniques we could use are DecisionTree, Logistic Regression and SVC since we are dealing with a classification problem. We will further tune the hyperparameters of our models, and analyze feature importance as we make progress in model training. 
 
-After choosing our final model, we will re-fit the model on the entire training data set after preprocessing and evaluate its performance on the test data set. At this point, we will look at overall accuracy as well as misclassifications (from the confusion matrix) to assess prediction performance. We also make use of Average Precision and ROC-AUC value to asses our final results as these provide us a good metric for different thresholds. We will adjust the main evaluation metric as we progress in the project.
+After choosing our final model, we will re-fit the model on the entire training data set after preprocessing and evaluate its performance on the test data set. At this point, we will look at overall accuracy as well as misclassifications (from the confusion matrix) to assess prediction performance. We also make use of Average Precision and ROC-AUC value to asses our final results as these provide us a good metric for different thresholds. 
 
 
 ## Usage
