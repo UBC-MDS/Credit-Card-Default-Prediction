@@ -30,7 +30,8 @@ RUN conda install --quiet -y -c conda-forge \
     "pandas=1.3.*" \
     "pickleshare=0.7.*" \
     "scikit-learn=1.*" \
-    "scipy=1.7.*" 
+    "scipy=1.7.*" \
+    "pyppeteer=0.2.*"
 
 RUN pip install \
     "mglearn==0.1.*" \
@@ -39,6 +40,5 @@ RUN pip install \
     "dataframe-image==0.1.1" \
     "jupyter-book==0.12.*" \
     "xlrd==2.0.*" \
-    "altair-data-server==0.4.*" \
-    "pyppeteer==0.2.*"
+    "altair-data-server==0.4.*"
 
