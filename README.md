@@ -54,6 +54,45 @@ After choosing our final model, we will re-fit the model on the entire training 
 
 ## Usage
 
+To replicate the analysis, all relevant data, scripts and necessary dependencies are available in this GitHub repository and you can use either Docker or run the makefile commands in the command line/terminal at the root of this project directory after cloning this GitHub repository locally. You can also run the scripts manually after cloning this repository locally. 
+
+#### 1. Using Docker
+To replicate this analysis, you should download and install [Docker](https://www.docker.com/get-started). Then clone this GitHub repository and run the following command in the command terminal from the root directory of this project:
+
+```
+docker build --tag 522_proj_credit_card
+```
+Then,
+
+```
+docker run --rm --platform linux/amd64 -v /$(pwd):/home/522_credit_card_default ciciecho/522_proj_credit_card make -C /home/522_credit_card_default all
+```
+To reset the repo to the original clean state, run the following command in the command prompt/terminal from the root directory of this project:
+
+```
+docker run --rm --platform linux/amd64 -v /$(pwd):/home/522_credit_card_default ciciecho/522_proj_credit_card make -C /home/522_credit_card_default clean
+```
+Note: For non-M1 users, please remove the flag `--platform linux/amd64`.
+
+#### 2. Without using Docker
+
+You can also replicate the analysis in this project by cloning this GitHub repository and install all necessary [dependencies](https://github.com/UBC-MDS/Credit-Card-Default-Prediction#dependencies) by following the instructions to load the enviroment file. Then, you can run the following command in the command prompt/terminal from the root directory of this project to replicate the full analysis and final report:
+
+```
+make all 
+```
+
+To reset the repo to the original state and delete all results files and report, run the following command at the command prompt/terminal from the root directory of this project:
+
+```
+make clean
+```
+**Dependency Diagram of the Makefile**
+![](Makefile.png)
+
+
+#### 3. Running scripts manually
+
 For reproducing the results of this repository, run the scripts in the order provided below:  
 
 Downloading the dataset:
@@ -80,11 +119,6 @@ Render report:
 ```
 jupyter-book build reports/ --builder pdfhtml
 ```
-
-## Using Docker
-
-### Dependency Diagram of the Makefile
-![](Makefile.png)
 
 ## Dependencies
 The complete list of packages used can be found in the [environment file](https://github.com/UBC-MDS/Credit-Card-Default-Prediction/blob/main/environment.yaml).
