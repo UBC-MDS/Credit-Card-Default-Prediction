@@ -31,7 +31,7 @@ RUN conda install --quiet -y -c conda-forge \
     "pickleshare=0.7.*" \
     "scikit-learn=1.*" \
     "scipy=1.7.*" \
-    "pyppeteer=0.2.*
+    "pyppeteer=0.2.*"
 
 RUN pip install \
     "mglearn==0.1.9" \
