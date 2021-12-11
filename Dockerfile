@@ -30,7 +30,8 @@ RUN conda install --quiet -y -c conda-forge \
     "pandas=1.3.*" \
     "pickleshare=0.7.*" \
     "scikit-learn=1.*" \
-    "scipy=1.7.*"
+    "scipy=1.7.*"\
+    "xlrd=1.0.*"
 
 RUN pip install \
     "mglearn==0.1.9" \
