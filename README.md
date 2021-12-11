@@ -93,7 +93,7 @@ make clean
 
 #### 3. Running scripts manually
 
-For reproducing the results of this repository, run the scripts in the order provided below:  
+You can also replicate the analysis in this project by cloning this GitHub repository and install all necessary [dependencies](https://github.com/UBC-MDS/Credit-Card-Default-Prediction#dependencies) by following the instructions to load the enviroment file. For reproducing the results of this repository, run the scripts in the order provided below:  
 
 Downloading the dataset:
 ```
