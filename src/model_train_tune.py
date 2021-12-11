@@ -16,7 +16,6 @@ from docopt import docopt
 import numpy as np
 import sys
 import pickle
-import dataframe_image as dfi
 
 from sklearn.model_selection import (
     RandomizedSearchCV,
@@ -37,6 +36,7 @@ from sklearn.preprocessing import (
 )
 from sklearn.svm import SVC
 from scipy.stats import loguniform
+import matplotlib.pyplot as plt
 
 
 opt = docopt(__doc__)
@@ -202,16 +202,20 @@ def main(path, out_file, model_path):
         
     try:
         results_in_df = train_multiple_models(preprocessor, X_train, y_train, scoring_metrics)
+        results_in_df = results_in_df.round(decimals=3)
     except:
         print('Error occured during training multiple models.')
     
     # Output: saving the cross val score in a CSV file & a PNG file
     try:
-        dfi.export(results_in_df, out_file)
-        dfi.export(results_in_df, 'results/images/model_results.png')
+        results_in_df.to_csv('results/model_results.csv')
+        ax = plt.subplot(111, frame_on=False)
+        ax.xaxis.set_visible(False)
+        ax.yaxis.set_visible(False)  #
+        pd.plotting.table(ax, results_in_df,loc='center')
+        plt.savefig('results/images/model_results.png', bbox_inches='tight', dpi=600)
     except:
-        os.makedirs(os.path.dirname(out_file))
-        dfi.export(results_in_df, out_file)
+        print('Error occured while saving cross val score.')
 
     # Model Tuning 
     # LR was decided to be the best model for this scenario
@@ -223,9 +227,7 @@ def main(path, out_file, model_path):
     try:
         pickle.dump(best_model, open(str(model_path),"wb"))
     except:
-        os.makedirs(os.path.dirname(model_path))
-        directory = os.path.dirname(model_path)
-        pickle.dump(best_model, open(str(directory)+"/final_model.pkl","wb"))
+        print('Error occured while saving pickle file.')
 
     
 
