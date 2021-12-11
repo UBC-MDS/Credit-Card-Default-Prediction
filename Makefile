@@ -27,8 +27,8 @@ results/models/final_model.pkl results/model_results.csv: src/model_train_tune.p
 
 # Model evaluation:
 results/images/classification_report.png results/images/confusion_matrix.png results/images/roc_auc_curve.png \
-results/images/precision_recall_curve.png results/images/final_scores.png: src/model_evaluate.py data/processed/train.csv \
-data/processed/test.csv results/models/final_model.pkl results/images/model_coefficients.png
+results/images/precision_recall_curve.png results/images/final_scores.png results/images/model_coefficients.png : \
+src/model_evaluate.py data/processed/train.csv data/processed/test.csv results/models/final_model.pkl
 	python src/model_evaluate.py data/processed/train.csv data/processed/test.csv results/models/final_model.pkl --out_dir=results/
 
 # Render final report:
