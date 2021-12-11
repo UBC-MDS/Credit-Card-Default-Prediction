@@ -34,11 +34,11 @@ RUN conda install --quiet -y -c conda-forge \
     "pyppeteer=0.2.*"
 
 RUN pip install \
-    "mglearn==0.1.*" \
-    "psutil==5.8.*" \
-    "selenium==4.1.*" \
+    "mglearn==0.1.9" \
+    "psutil==5.8.0" \
+    "selenium==3.141.0" \
     "dataframe-image==0.1.1" \
-    "jupyter-book==0.12.*" \
-    "xlrd==2.0.*" \
-    "altair-data-server==0.4.*"
+    "jupyter-book==0.12.1" \
+    "altair-data-server==0.4.*" \
+    "xlrd==1.2.*"
 
