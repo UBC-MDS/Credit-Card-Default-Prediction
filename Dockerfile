@@ -30,13 +30,13 @@ RUN conda install --quiet -y -c conda-forge \
     "pandas=1.3.*" \
     "pickleshare=0.7.*" \
     "scikit-learn=1.*" \
-    "scipy=1.7.*"\
-    "xlrd=1.0.*"
+    "scipy=1.7.*"
 
 RUN pip install \
     "mglearn==0.1.9" \
     "psutil==5.8.0" \
     "selenium==3.141.0" \
     "dataframe-image==0.1.1" \
-    "jupyter-book==0.12.1"
+    "jupyter-book==0.12.1" \
+    "xlrd==1.0.*"
 
