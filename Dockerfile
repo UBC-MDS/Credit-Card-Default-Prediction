@@ -9,7 +9,7 @@ FROM $BASE_CONTAINER
 RUN apt-get update -y
 
 #install dev tools
-RUN apt-get install gcc python3-dev -y
+RUN apt-get install gcc python3-dev chromium-driver -y
 
 #install gnu make
 RUN apt-get install make -y
