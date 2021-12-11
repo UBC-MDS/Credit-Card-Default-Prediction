@@ -1,11 +1,12 @@
 # Credit Card Default Prediction Pipe
 # author: David Wang
 # date: 2021-12-03
+# last update: 2021-12-10
 
 all: results/images/classification_report.png results/images/confusion_matrix.png results/images/roc_auc_curve.png \
 results/images/precision_recall_curve.png results/images/final_scores.png results/model_results.csv \
 results/images/dist_num_feats_by_target.png results/images/dist_cat_feats_by_target.png results/images/dist_age_by_target.png \
-results/images/dist_target.png reports/_build/pdf/book.pdf
+results/images/dist_target.png results/images/model_coefficients.png reports/_build/pdf/book.pdf
 
 # Downloading the dataset:
 data/raw/data.csv: src/download_data.py 
@@ -26,8 +27,8 @@ results/models/final_model.pkl results/model_results.csv: src/model_train_tune.p
 
 # Model evaluation:
 results/images/classification_report.png results/images/confusion_matrix.png results/images/roc_auc_curve.png \
-results/images/precision_recall_curve.png results/images/final_scores.png: src/model_evaluate.py data/processed/train.csv \
-data/processed/test.csv results/models/final_model.pkl
+results/images/precision_recall_curve.png results/images/final_scores.png results/images/model_coefficients.png : \
+src/model_evaluate.py data/processed/train.csv data/processed/test.csv results/models/final_model.pkl
 	python src/model_evaluate.py data/processed/train.csv data/processed/test.csv results/models/final_model.pkl --out_dir=results/
 
 # Render final report:
