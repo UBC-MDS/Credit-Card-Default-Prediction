@@ -39,5 +39,6 @@ RUN pip install \
     "selenium==3.141.0" \
     "dataframe-image==0.1.1" \
     "jupyter-book==0.12.1" \
-    "xlrd==1.2.*"
+    "xlrd==1.2.*" \
+    "altair-data-server==0.4.*"
 
